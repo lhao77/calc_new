@@ -9,6 +9,14 @@
 #ifndef calc_def_h
 #define calc_def_h
 
+#include <assert.h>
+
+#ifdef _DEBUG
+# define ASSERT(x) assert(x)
+#else
+# define ASSERT(x) (void*)0
+#endif 
+
 #include <string>
 #include <map>
 #include <vector>
@@ -23,5 +31,7 @@ struct Functions {
     Functions(){}
 };
 extern std::vector< Functions > g_type_func;
+
+
 
 #endif

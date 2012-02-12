@@ -21,7 +21,14 @@
 		2E9273B014E7AC7900C52C2A /* DetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273AE14E7AC7900C52C2A /* DetailViewController_iPad.xib */; };
 		2E9273C614E7BD3300C52C2A /* EqInstalmentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273C414E7BD3300C52C2A /* EqInstalmentViewController.mm */; };
 		2E9273C714E7BD3300C52C2A /* EqInstalmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273C514E7BD3300C52C2A /* EqInstalmentViewController.xib */; };
-		2E9273CB14E7BDB800C52C2A /* calc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273CA14E7BDB800C52C2A /* calc.cpp */; };
+		2E9273E214E7C3F200C52C2A /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273D514E7C3F200C52C2A /* tinystr.cpp */; };
+		2E9273E314E7C3F200C52C2A /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273D714E7C3F200C52C2A /* tinyxml.cpp */; };
+		2E9273E414E7C3F200C52C2A /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273D914E7C3F200C52C2A /* tinyxmlerror.cpp */; };
+		2E9273E514E7C3F200C52C2A /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DA14E7C3F200C52C2A /* tinyxmlparser.cpp */; };
+		2E9273E614E7C3F200C52C2A /* calc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DC14E7C3F200C52C2A /* calc.cpp */; };
+		2E9273E714E7C3F200C52C2A /* string.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273DE14E7C3F200C52C2A /* string.xml */; };
+		2E9273E814E7C3F200C52C2A /* StringMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */; };
+		2E9273E914E7C3F200C52C2A /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273E114E7C3F200C52C2A /* StringUtil.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +53,18 @@
 		2E9273C314E7BD3300C52C2A /* EqInstalmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqInstalmentViewController.h; sourceTree = "<group>"; };
 		2E9273C414E7BD3300C52C2A /* EqInstalmentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqInstalmentViewController.mm; sourceTree = "<group>"; };
 		2E9273C514E7BD3300C52C2A /* EqInstalmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqInstalmentViewController.xib; sourceTree = "<group>"; };
-		2E9273C914E7BD9400C52C2A /* def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = def.h; sourceTree = "<group>"; };
-		2E9273CA14E7BDB800C52C2A /* calc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = calc.cpp; sourceTree = "<group>"; };
+		2E9273D514E7C3F200C52C2A /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
+		2E9273D614E7C3F200C52C2A /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		2E9273D714E7C3F200C52C2A /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		2E9273D814E7C3F200C52C2A /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		2E9273D914E7C3F200C52C2A /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		2E9273DA14E7C3F200C52C2A /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		2E9273DC14E7C3F200C52C2A /* calc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = calc.cpp; sourceTree = "<group>"; };
+		2E9273DD14E7C3F200C52C2A /* def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = def.h; sourceTree = "<group>"; };
+		2E9273DE14E7C3F200C52C2A /* string.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string.xml; sourceTree = "<group>"; };
+		2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringMgr.cpp; sourceTree = "<group>"; };
+		2E9273E014E7C3F200C52C2A /* StringMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringMgr.h; sourceTree = "<group>"; };
+		2E9273E114E7C3F200C52C2A /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +111,8 @@
 		2E92739314E7AC7800C52C2A /* calc */ = {
 			isa = PBXGroup;
 			children = (
-				2E9273C814E7BD9400C52C2A /* util */,
+				2E9273D414E7C3F200C52C2A /* tinyxml */,
+				2E9273DB14E7C3F200C52C2A /* util */,
 				2E92739C14E7AC7800C52C2A /* AppDelegate.h */,
 				2E92739D14E7AC7800C52C2A /* AppDelegate.mm */,
 				2E92739F14E7AC7800C52C2A /* MasterViewController.h */,
@@ -124,11 +142,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2E9273C814E7BD9400C52C2A /* util */ = {
+		2E9273D414E7C3F200C52C2A /* tinyxml */ = {
 			isa = PBXGroup;
 			children = (
-				2E9273CA14E7BDB800C52C2A /* calc.cpp */,
-				2E9273C914E7BD9400C52C2A /* def.h */,
+				2E9273D514E7C3F200C52C2A /* tinystr.cpp */,
+				2E9273D614E7C3F200C52C2A /* tinystr.h */,
+				2E9273D714E7C3F200C52C2A /* tinyxml.cpp */,
+				2E9273D814E7C3F200C52C2A /* tinyxml.h */,
+				2E9273D914E7C3F200C52C2A /* tinyxmlerror.cpp */,
+				2E9273DA14E7C3F200C52C2A /* tinyxmlparser.cpp */,
+			);
+			name = tinyxml;
+			path = calc/tinyxml;
+			sourceTree = SOURCE_ROOT;
+		};
+		2E9273DB14E7C3F200C52C2A /* util */ = {
+			isa = PBXGroup;
+			children = (
+				2E9273DC14E7C3F200C52C2A /* calc.cpp */,
+				2E9273DD14E7C3F200C52C2A /* def.h */,
+				2E9273DE14E7C3F200C52C2A /* string.xml */,
+				2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */,
+				2E9273E014E7C3F200C52C2A /* StringMgr.h */,
+				2E9273E114E7C3F200C52C2A /* StringUtil.cpp */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -189,6 +225,7 @@
 				2E9273AD14E7AC7900C52C2A /* DetailViewController_iPhone.xib in Resources */,
 				2E9273B014E7AC7900C52C2A /* DetailViewController_iPad.xib in Resources */,
 				2E9273C714E7BD3300C52C2A /* EqInstalmentViewController.xib in Resources */,
+				2E9273E714E7C3F200C52C2A /* string.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +241,13 @@
 				2E9273A114E7AC7800C52C2A /* MasterViewController.mm in Sources */,
 				2E9273A414E7AC7800C52C2A /* DetailViewController.mm in Sources */,
 				2E9273C614E7BD3300C52C2A /* EqInstalmentViewController.mm in Sources */,
-				2E9273CB14E7BDB800C52C2A /* calc.cpp in Sources */,
+				2E9273E214E7C3F200C52C2A /* tinystr.cpp in Sources */,
+				2E9273E314E7C3F200C52C2A /* tinyxml.cpp in Sources */,
+				2E9273E414E7C3F200C52C2A /* tinyxmlerror.cpp in Sources */,
+				2E9273E514E7C3F200C52C2A /* tinyxmlparser.cpp in Sources */,
+				2E9273E614E7C3F200C52C2A /* calc.cpp in Sources */,
+				2E9273E814E7C3F200C52C2A /* StringMgr.cpp in Sources */,
+				2E9273E914E7C3F200C52C2A /* StringUtil.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +387,7 @@
 				2E9273B514E7AC7900C52C2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

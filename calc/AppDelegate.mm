@@ -13,6 +13,7 @@
 #import "DetailViewController.h"
 
 #include "def.h"
+#include "StringMgr.h"
 
 std::vector< Functions > g_type_func;
 
@@ -32,6 +33,14 @@ void init_map_func()
     g_type_func.push_back(fs);
 }
 
+extern std::string xml_path;
+void init_string()
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"string.xml" ofType:@""];
+    NSLog(@"--%@--",path);
+    xml_path = [path UTF8String];
+    StringMgr::GetStringMgr()->init();
+}
 @implementation AppDelegate
 
 @synthesize window = _window;

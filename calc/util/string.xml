@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<string>
+    <item name="STR_CHINA">
+        <descript lang="1">中国</descript>
+        <descript lang="2">China</descript>
+    </item>
+    <item name="STR_LOAN_AMOUNT">
+        <descript lang="1">贷款总额</descript>
+        <descript lang="2">LOAN AMOUNT</descript>
+    </item>
+    <item name="STR_LOAN_YEAR">
+        <descript lang="1">贷款年限</descript>
+        <descript lang="2">LOANYEAR</descript>
+    </item>
+    <item name="STR_LOAN_INTEREST">
+        <descript lang="1">贷款利率</descript>
+        <descript lang="2">INTEREST</descript>
+    </item>
+    <item name="STR_LOAN_INTEREST">
+        <descript lang="1">贷款利率</descript>
+        <descript lang="2">INTEREST</descript>
+    </item>
+    <item name="STR_LOAN_INTEREST">
+        <descript lang="1">贷款利率</descript>
+        <descript lang="2">INTEREST</descript>
+    </item>
+    <item name="STR_PAYMENT_TYPE">
+        <descript lang="1">还款方式</descript>
+        <descript lang="2">PAYMENT TYPE</descript>
+    </item>
+    <item name="STR_EQ_INSTALLMENT">
+        <descript lang="1">等额本息</descript>
+        <descript lang="2">EQ INSTALLMENT</descript>
+    </item>
+    <item name="STR_EQ_PAY">
+        <descript lang="1">等额本金</descript>
+        <descript lang="2">EQ PAY</descript>
+    </item>
+    <item name="STR_PAYENT_PER_MONTH">
+        <descript lang="1">月均还款</descript>
+        <descript lang="2">PAYMENT(MONTH)</descript>
+    </item>
+    <item name="STR_PAYENT_AMOUNT">
+        <descript lang="1">还款总额</descript>
+        <descript lang="2">PAYENTAMOUNT</descript>
+    </item>
+    <item name="STR_INTERST_AMOUNT">
+        <descript lang="1">利息总额</descript>
+        <descript lang="2">INTERST AMOUNT</descript>
+    </item>
+    <item name="STR_OK">
+        <descript lang="1">计算</descript>
+        <descript lang="2">OK</descript>
+    </item>
+    <item name="STR_RESET">
+        <descript lang="1">重置</descript>
+        <descript lang="2">RESET</descript>
+    </item>
+    
+    <item name="STR_TENTHOU">
+        <descript lang="1">(万元)</descript>
+        <descript lang="2">0000</descript>
+    </item>
+    <item name="STR_YEAR">
+        <descript lang="1">年</descript>
+        <descript lang="2">YEAR</descript>
+    </item>
+    <item name="STR_PERCENT">
+        <descript lang="1">(%)</descript>
+        <descript lang="2">(%)</descript>
+    </item>
+    <item name="STR_YUAN">
+        <descript lang="1">(元)</descript>
+        <descript lang="2">(YUAN)</descript>
+    </item>
+    
+</string>
