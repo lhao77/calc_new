@@ -32,6 +32,4 @@ struct Functions {
 };
 extern std::vector< Functions > g_type_func;
 
-
-
 #endif

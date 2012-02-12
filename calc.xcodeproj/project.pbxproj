@@ -29,6 +29,7 @@
 		2E9273E714E7C3F200C52C2A /* string.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273DE14E7C3F200C52C2A /* string.xml */; };
 		2E9273E814E7C3F200C52C2A /* StringMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */; };
 		2E9273E914E7C3F200C52C2A /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273E114E7C3F200C52C2A /* StringUtil.cpp */; };
+		2E9273ED14E8098600C52C2A /* BaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273EC14E8098600C52C2A /* BaseViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringMgr.cpp; sourceTree = "<group>"; };
 		2E9273E014E7C3F200C52C2A /* StringMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringMgr.h; sourceTree = "<group>"; };
 		2E9273E114E7C3F200C52C2A /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
+		2E9273EB14E8098500C52C2A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		2E9273EC14E8098600C52C2A /* BaseViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				2E9273DB14E7C3F200C52C2A /* util */,
 				2E92739C14E7AC7800C52C2A /* AppDelegate.h */,
 				2E92739D14E7AC7800C52C2A /* AppDelegate.mm */,
+				2E9273EB14E8098500C52C2A /* BaseViewController.h */,
+				2E9273EC14E8098600C52C2A /* BaseViewController.mm */,
 				2E92739F14E7AC7800C52C2A /* MasterViewController.h */,
 				2E9273A014E7AC7800C52C2A /* MasterViewController.mm */,
 				2E9273A214E7AC7800C52C2A /* DetailViewController.h */,
@@ -248,6 +253,7 @@
 				2E9273E614E7C3F200C52C2A /* calc.cpp in Sources */,
 				2E9273E814E7C3F200C52C2A /* StringMgr.cpp in Sources */,
 				2E9273E914E7C3F200C52C2A /* StringUtil.cpp in Sources */,
+				2E9273ED14E8098600C52C2A /* BaseViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

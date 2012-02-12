@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
-
+#import "EqInstalmentViewController.h"
 #import "DetailViewController.h"
 
 #include "def.h"
@@ -41,6 +41,14 @@ void init_string()
     xml_path = [path UTF8String];
     StringMgr::GetStringMgr()->init();
 }
+
+EqInstalmentViewController *g_EqInstalmentViewController;
+
+void init()
+{
+    g_EqInstalmentViewController = [[EqInstalmentViewController alloc] initWithNibName:nil bundle:nil];
+}
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -49,6 +57,7 @@ void init_string()
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    init();
     init_map_func();
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

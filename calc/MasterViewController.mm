@@ -9,12 +9,14 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "EqInstalmentViewController.h"
 
 #include "def.h"
 
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController;
+//@synthesize eqInstalmentViewController = _eqInstalmentViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -159,12 +161,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    if (!self.detailViewController) {
-	        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
-	    }
-        [self.navigationController pushViewController:self.detailViewController animated:YES];
-    }
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//	    if (!self.detailViewController) {
+//	        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+//	    }
+//        [self.navigationController pushViewController:self.detailViewController animated:YES];
+//    }
+    extern EqInstalmentViewController *g_EqInstalmentViewController;
+    [self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
 }
 
 @end

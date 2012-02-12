@@ -6,8 +6,9 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
+#import "BaseViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface EqInstalmentViewController : UIViewController
+@interface EqInstalmentViewController : BaseViewController
 
 @end

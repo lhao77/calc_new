@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class DetailViewController;
+@class EqInstalmentViewController;
 
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+//@property (strong, nonatomic) EqInstalmentViewController *eqInstalmentViewController;
 
 @end
