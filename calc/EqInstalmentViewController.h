@@ -9,6 +9,10 @@
 #import "BaseViewController.h"
 #import <UIKit/UIKit.h>
 
+#import "EqInputViewController.h"
+
 @interface EqInstalmentViewController : BaseViewController
+
+@property (strong, nonatomic) EqInputViewController *eqInputViewController;
 
 @end

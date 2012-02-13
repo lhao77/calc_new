@@ -59,6 +59,7 @@ void init()
 {
     init();
     init_map_func();
+    init_string();
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

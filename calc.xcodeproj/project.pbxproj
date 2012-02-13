@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E8B2BD614E93F8F00FCEB63 /* EqInputViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */; };
+		2E8B2BD714E93F8F00FCEB63 /* EqInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B2BD514E93F8F00FCEB63 /* EqInputViewController.xib */; };
 		2E92738E14E7AC7800C52C2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92738D14E7AC7800C52C2A /* UIKit.framework */; };
 		2E92739014E7AC7800C52C2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92738F14E7AC7800C52C2A /* Foundation.framework */; };
 		2E92739214E7AC7800C52C2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92739114E7AC7800C52C2A /* CoreGraphics.framework */; };
@@ -30,9 +32,14 @@
 		2E9273E814E7C3F200C52C2A /* StringMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */; };
 		2E9273E914E7C3F200C52C2A /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273E114E7C3F200C52C2A /* StringUtil.cpp */; };
 		2E9273ED14E8098600C52C2A /* BaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273EC14E8098600C52C2A /* BaseViewController.mm */; };
+		2EECAB9914E94ACE00C92334 /* EqOutputViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2EECAB9714E94ACD00C92334 /* EqOutputViewController.mm */; };
+		2EECAB9A14E94ACE00C92334 /* EqOutputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EECAB9814E94ACD00C92334 /* EqOutputViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E8B2BD314E93F8F00FCEB63 /* EqInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqInputViewController.h; sourceTree = "<group>"; };
+		2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqInputViewController.mm; sourceTree = "<group>"; };
+		2E8B2BD514E93F8F00FCEB63 /* EqInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqInputViewController.xib; sourceTree = "<group>"; };
 		2E92738914E7AC7800C52C2A /* calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E92738D14E7AC7800C52C2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2E92738F14E7AC7800C52C2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,6 +75,9 @@
 		2E9273E114E7C3F200C52C2A /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
 		2E9273EB14E8098500C52C2A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		2E9273EC14E8098600C52C2A /* BaseViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseViewController.mm; sourceTree = "<group>"; };
+		2EECAB9614E94ACD00C92334 /* EqOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqOutputViewController.h; sourceTree = "<group>"; };
+		2EECAB9714E94ACD00C92334 /* EqOutputViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqOutputViewController.mm; sourceTree = "<group>"; };
+		2EECAB9814E94ACD00C92334 /* EqOutputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqOutputViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +142,12 @@
 				2E9273C414E7BD3300C52C2A /* EqInstalmentViewController.mm */,
 				2E9273C514E7BD3300C52C2A /* EqInstalmentViewController.xib */,
 				2E92739414E7AC7800C52C2A /* Supporting Files */,
+				2E8B2BD314E93F8F00FCEB63 /* EqInputViewController.h */,
+				2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */,
+				2E8B2BD514E93F8F00FCEB63 /* EqInputViewController.xib */,
+				2EECAB9614E94ACD00C92334 /* EqOutputViewController.h */,
+				2EECAB9714E94ACD00C92334 /* EqOutputViewController.mm */,
+				2EECAB9814E94ACD00C92334 /* EqOutputViewController.xib */,
 			);
 			path = calc;
 			sourceTree = "<group>";
@@ -231,6 +247,8 @@
 				2E9273B014E7AC7900C52C2A /* DetailViewController_iPad.xib in Resources */,
 				2E9273C714E7BD3300C52C2A /* EqInstalmentViewController.xib in Resources */,
 				2E9273E714E7C3F200C52C2A /* string.xml in Resources */,
+				2E8B2BD714E93F8F00FCEB63 /* EqInputViewController.xib in Resources */,
+				2EECAB9A14E94ACE00C92334 /* EqOutputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +272,8 @@
 				2E9273E814E7C3F200C52C2A /* StringMgr.cpp in Sources */,
 				2E9273E914E7C3F200C52C2A /* StringUtil.cpp in Sources */,
 				2E9273ED14E8098600C52C2A /* BaseViewController.mm in Sources */,
+				2E8B2BD614E93F8F00FCEB63 /* EqInputViewController.mm in Sources */,
+				2EECAB9914E94ACE00C92334 /* EqOutputViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

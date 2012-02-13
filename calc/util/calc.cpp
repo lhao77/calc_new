@@ -1,7 +1,9 @@
-//
+ï»¿//
 //  calc.cpp
 //
 
+
+#include "def.h"
 #include <vector>
 #include <math.h>
 #include <string>
@@ -9,52 +11,16 @@
 #include <stdio.h>
 #include <string.h>
 
-//#define FORMAT "µÚ%dÔÂ£º%fÔª\n"
+//#define FORMAT "ç¬¬%dæœˆï¼š%få…ƒ\n"
 
-//µÈ¶î±¾Ï¢¡¢µÈ¶î±¾½ğµÄÊäÈë
-struct input_eq_payment
-{
-    //bool   b_eq_installment;
-    bool   b_calc_by_loan_amount;
-    double loan_amount;
-    int    months;
-    double interest;
-    
-    double area;
-    double price_per_centiare;
-    double mortgage_percentage;
-};
-
-//µÈ¶î±¾Ï¢µÄÊä³ö
-struct output_eq_installment_payment
-{
-    double house_price;
-    double initial_payment;
-    double loan_amount;    
-    double payment_amount;
-    double interest_amount;
-    double payment_permonth;
-};
-
-//µÈ¶î±¾½ğµÄÊä³ö
-struct output_eq_interest_payment
-{
-    double house_price;
-    double initial_payment;
-    double loan_amount;    
-    double payment_amount;
-    double interest_amount;
-    std::vector<double> vec_payment_permonth;
-};
-
-//¼ÆËãµÈ¶î±¾Ï¢ÔÂ¾ù»¹¿î¶î¶È
+//è®¡ç®—ç­‰é¢æœ¬æ¯æœˆå‡è¿˜æ¬¾é¢åº¦
 double calc_payment_permonth_eq_installment(double loan_amount,int months,double interest)
 {
     double dtmp = pow((1+interest/12),months);
     return loan_amount*interest/12*dtmp/(dtmp-1);
 }
 
-//µÈ¶î±¾Ï¢»¹¿î·¨
+//ç­‰é¢æœ¬æ¯è¿˜æ¬¾æ³•
 struct output_eq_installment_payment calc_eq_installment_payment(struct input_eq_payment input)
 {
     struct output_eq_installment_payment output;
@@ -81,7 +47,7 @@ struct output_eq_installment_payment calc_eq_installment_payment(struct input_eq
     return output;
 }
 
-//¼ÆËãµÈ¶î±¾½ğµÄÃ¿ÔÂ»¹¿î
+//è®¡ç®—ç­‰é¢æœ¬é‡‘çš„æ¯æœˆè¿˜æ¬¾
 std::vector<double> calc_equal_interest(double loan_amount,int months,double interest,
                                         std::vector<double> &vec_payment_permonth,double &payment_amount)
 {    
@@ -96,7 +62,7 @@ std::vector<double> calc_equal_interest(double loan_amount,int months,double int
     return vec_payment_permonth;
 }
 
-//µÈ¶î±¾½ğ»¹¿î·¨
+//ç­‰é¢æœ¬é‡‘è¿˜æ¬¾æ³•
 struct output_eq_interest_payment calc_eq_interest_payment(struct input_eq_payment input)
 {
     struct output_eq_interest_payment output;
@@ -123,12 +89,12 @@ struct output_eq_interest_payment calc_eq_interest_payment(struct input_eq_payme
     return output;
 }
 
-//¸ñÊ½»¯Ã¿ÔÂ»¹¿î
+//æ ¼å¼åŒ–æ¯æœˆè¿˜æ¬¾
 std::string format_eq_interest(std::vector<double> vec_db,const char* format)
 {
     std::string ret;
     char tmp[100];
-    //char sz[20] = "µÚ%dÔÂ£º%fÔª\n";
+    //char sz[20] = "ç¬¬%dæœˆï¼š%få…ƒ\n";
     int size = vec_db.size();
     for(int idx=0;idx<size;idx++)
     {
@@ -139,35 +105,8 @@ std::string format_eq_interest(std::vector<double> vec_db,const char* format)
     return ret;
 }
 
-//-----------------------------ÌáÇ°»¹´û-----------------------------
-//Prepayment Input Struct
-struct input_prepayment_eq_installment
-{
-    double loan_amount;
-    int    months_amount;
-    double interest_former;
-    double interest_new;
-    int    months_passed;
-    double wish_payment_this_month;
-    bool   b_wish_pay_all;
-    bool   b_wish_reduce_payment_permonth;
-};
-
-//Prepayment Result Struct
-struct result_prepayment_eq_installment
-{
-    double old_payment_permonth;
-    double new_payment_permonth;
-    double actual_payment_this_month;
-    double saved_interest_expense;
-    double payment_paid;
-    double interest_paid;
-    int    months_former;
-    int    months_new;
-    bool   bpay_all;
-};
-
-//µÈ¶î±¾Ï¢µÚn¸öÔÂºóËùÇ·ÒøĞĞ´û¿îÎª£º ¡¡¡¡A(1+¦Â)^n-X[1+(1+¦Â)+(1+¦Â)^2+¡­+(1+¦Â)^(n-1)] = A(1+¦Â)^n-X[(1+¦Â)^n-1]/¦Â
+//-----------------------------æå‰è¿˜è´·-----------------------------
+//ç­‰é¢æœ¬æ¯ç¬¬nä¸ªæœˆåæ‰€æ¬ é“¶è¡Œè´·æ¬¾ä¸ºï¼š ã€€ã€€A(1+Î²)^n-X[1+(1+Î²)+(1+Î²)^2+â€¦+(1+Î²)^(n-1)] = A(1+Î²)^n-X[(1+Î²)^n-1]/Î²
 double calc_loan_amount_after_n_months(double loan_amount,int months_amount,double pre_interest,int months_passed,double paid_per_month)
 {
     //double paid_per_month = calc_payment_permonth_eq_installment(loan_amount,months_amount,pre_interest);
@@ -175,23 +114,23 @@ double calc_loan_amount_after_n_months(double loan_amount,int months_amount,doub
     return loan_amount*dtmp-paid_per_month*(dtmp-1)/(pre_interest/12);
 }
 
-//ÌáÇ°»¹¿îºó×îĞÂµÄµÈ¶î±¾Ï¢µÄÃ¿ÔÂ»¹¿î
+//æå‰è¿˜æ¬¾åæœ€æ–°çš„ç­‰é¢æœ¬æ¯çš„æ¯æœˆè¿˜æ¬¾
 double calc_prepayment_permonth_eq_installment(double loan_amount,int months_amount,double pre_interest,double new_interest,int months_passed,double payment)
 {
     double paid_per_month = calc_payment_permonth_eq_installment(loan_amount,months_amount,pre_interest);
-    double loan = calc_loan_amount_after_n_months(loan_amount,months_amount,pre_interest,months_passed,paid_per_month)-(payment+paid_per_month);//¿ÓÈË°¡£¬¸¶ÁË12¸öÔÂµÄ£¬ÌáÇ°»¹µÄÄÇ¸öÔÂ»¹Òª¶à¸¶Ò»¸öÔÂ£¬Äª·ÇÕâ¾ÍÊÇÌáÇ°»¹¿î´¦·£½ğ
+    double loan = calc_loan_amount_after_n_months(loan_amount,months_amount,pre_interest,months_passed,paid_per_month)-(payment+paid_per_month);//å‘äººå•Šï¼Œä»˜äº†12ä¸ªæœˆçš„ï¼Œæå‰è¿˜çš„é‚£ä¸ªæœˆè¿˜è¦å¤šä»˜ä¸€ä¸ªæœˆï¼Œè«éè¿™å°±æ˜¯æå‰è¿˜æ¬¾å¤„ç½šé‡‘
     
     double pay = calc_payment_permonth_eq_installment(loan,months_amount-months_passed,new_interest);
     return pay;
 }
 
-//±¾´Î»¹¿îÖ®ºó£¬Ê£Óà´û¿îÊıÄ¿
+//æœ¬æ¬¡è¿˜æ¬¾ä¹‹åï¼Œå‰©ä½™è´·æ¬¾æ•°ç›®
 double calc_loan_amount_after_prepayment_eq_installment(double loan,double payment,double paid_per_month)
 {
-    return loan-(payment+paid_per_month);//¿ÓÈË°¡£¬¸¶ÁË12¸öÔÂµÄ£¬ÌáÇ°»¹µÄÄÇ¸öÔÂ»¹Òª¶à¸¶Ò»¸öÔÂ£¬Äª·ÇÕâ¾ÍÊÇÌáÇ°»¹¿î´¦·£½ğ
+    return loan-(payment+paid_per_month);//å‘äººå•Šï¼Œä»˜äº†12ä¸ªæœˆçš„ï¼Œæå‰è¿˜çš„é‚£ä¸ªæœˆè¿˜è¦å¤šä»˜ä¸€ä¸ªæœˆï¼Œè«éè¿™å°±æ˜¯æå‰è¿˜æ¬¾å¤„ç½šé‡‘
 }
 
-//¼ÆËãÃ¿ÔÂ»¹¿î¶î¶È²»±äÊ±£¬ĞèÒªµÄ»¹¿îÔÂÊı
+//è®¡ç®—æ¯æœˆè¿˜æ¬¾é¢åº¦ä¸å˜æ—¶ï¼Œéœ€è¦çš„è¿˜æ¬¾æœˆæ•°
 int calc_months_need(double loan_amount,int months_amount,double pre_interest,double paid_per_month)
 {
     for(int i=1;i<=months_amount;i++)
@@ -203,7 +142,7 @@ int calc_months_need(double loan_amount,int months_amount,double pre_interest,do
     }
 }
 
-//ÌáÇ°»¹¿î¼ÆËã
+//æå‰è¿˜æ¬¾è®¡ç®—
 struct result_prepayment_eq_installment calc_prepayment_eq_installment(struct input_prepayment_eq_installment input)
 {
     struct result_prepayment_eq_installment ret;
@@ -286,14 +225,12 @@ void test_calc_prepayment_eq_installment()
     printf("====================================================\n");
 }
 
-/*
-int main()
-{
-    test_calc_eq_installment_payment();
-    test_calc_eq_installment_payment();
-    test_calc_prepayment_eq_installment();
-    
-    system("pause");
-}
- */
+//int main()
+//{
+//    test_calc_eq_installment_payment();
+//    test_calc_eq_installment_payment();
+//    test_calc_prepayment_eq_installment();
+//    
+//    system("pause");
+//}
 

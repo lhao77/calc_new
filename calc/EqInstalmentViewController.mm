@@ -10,6 +10,8 @@
 
 @implementation EqInstalmentViewController
 
+@synthesize eqInputViewController;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,6 +35,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.eqInputViewController = [[EqInputViewController alloc] initWithNibName:nil bundle:nil];
+    //eqInputViewController.view.frame = CGRectMake(0.0f,0.0f,320.0f,);
+    [self.view addSubview:eqInputViewController.view];
 }
 
 - (void)viewDidUnload

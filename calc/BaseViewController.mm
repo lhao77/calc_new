@@ -79,10 +79,10 @@
     //self.user
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"%@",[[touches anyObject] locationInView:self.view]);
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSLog(@"%@",[[touches anyObject] locationInView:self.view]);
+//}
 
 - (void)viewDidUnload
 {
