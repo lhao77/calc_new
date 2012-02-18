@@ -40,6 +40,14 @@
         <descript lang="1">月均还款</descript>
         <descript lang="2">PAYMENT(MONTH)</descript>
     </item>
+    <item name="STR_HOUSE_PRICE">
+        <descript lang="1">房屋总价</descript>
+        <descript lang="2">HOUSE PRICE</descript>
+    </item>
+    <item name="STR_INITIAL_PAYMENT">
+        <descript lang="1">首期付款</descript>
+        <descript lang="2">INITIAL PAYMENT</descript>
+    </item>
     <item name="STR_PAYENT_AMOUNT">
         <descript lang="1">还款总额</descript>
         <descript lang="2">PAYENTAMOUNT</descript>

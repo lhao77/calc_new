@@ -97,4 +97,7 @@ struct result_prepayment_eq_installment
     int    months_new;
     bool   bpay_all;
 };
+
+extern //等额本息还款法
+struct output_eq_installment_payment calc_eq_installment_payment(struct input_eq_payment input);
 #endif

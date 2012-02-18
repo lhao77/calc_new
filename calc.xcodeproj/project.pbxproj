@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2E8B2BD614E93F8F00FCEB63 /* EqInputViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */; };
 		2E8B2BD714E93F8F00FCEB63 /* EqInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B2BD514E93F8F00FCEB63 /* EqInputViewController.xib */; };
+		2E8C66D714EBD95C000DAB71 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C66D514EBD95C000DAB71 /* MyTableViewController.m */; };
+		2E8C66D814EBD95C000DAB71 /* MyTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C66D614EBD95C000DAB71 /* MyTableViewController.xib */; };
+		2E8C66DB14EBDBDC000DAB71 /* tableviewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C66DA14EBDBDC000DAB71 /* tableviewcell.xib */; };
 		2E92738E14E7AC7800C52C2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92738D14E7AC7800C52C2A /* UIKit.framework */; };
 		2E92739014E7AC7800C52C2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92738F14E7AC7800C52C2A /* Foundation.framework */; };
 		2E92739214E7AC7800C52C2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92739114E7AC7800C52C2A /* CoreGraphics.framework */; };
@@ -40,6 +43,10 @@
 		2E8B2BD314E93F8F00FCEB63 /* EqInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqInputViewController.h; sourceTree = "<group>"; };
 		2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqInputViewController.mm; sourceTree = "<group>"; };
 		2E8B2BD514E93F8F00FCEB63 /* EqInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqInputViewController.xib; sourceTree = "<group>"; };
+		2E8C66D414EBD95C000DAB71 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
+		2E8C66D514EBD95C000DAB71 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
+		2E8C66D614EBD95C000DAB71 /* MyTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableViewController.xib; sourceTree = "<group>"; };
+		2E8C66DA14EBDBDC000DAB71 /* tableviewcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableviewcell.xib; sourceTree = "<group>"; };
 		2E92738914E7AC7800C52C2A /* calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E92738D14E7AC7800C52C2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2E92738F14E7AC7800C52C2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -148,6 +155,10 @@
 				2EECAB9614E94ACD00C92334 /* EqOutputViewController.h */,
 				2EECAB9714E94ACD00C92334 /* EqOutputViewController.mm */,
 				2EECAB9814E94ACD00C92334 /* EqOutputViewController.xib */,
+				2E8C66D414EBD95C000DAB71 /* MyTableViewController.h */,
+				2E8C66D514EBD95C000DAB71 /* MyTableViewController.m */,
+				2E8C66D614EBD95C000DAB71 /* MyTableViewController.xib */,
+				2E8C66DA14EBDBDC000DAB71 /* tableviewcell.xib */,
 			);
 			path = calc;
 			sourceTree = "<group>";
@@ -249,6 +260,8 @@
 				2E9273E714E7C3F200C52C2A /* string.xml in Resources */,
 				2E8B2BD714E93F8F00FCEB63 /* EqInputViewController.xib in Resources */,
 				2EECAB9A14E94ACE00C92334 /* EqOutputViewController.xib in Resources */,
+				2E8C66D814EBD95C000DAB71 /* MyTableViewController.xib in Resources */,
+				2E8C66DB14EBDBDC000DAB71 /* tableviewcell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +287,7 @@
 				2E9273ED14E8098600C52C2A /* BaseViewController.mm in Sources */,
 				2E8B2BD614E93F8F00FCEB63 /* EqInputViewController.mm in Sources */,
 				2EECAB9914E94ACE00C92334 /* EqOutputViewController.mm in Sources */,
+				2E8C66D714EBD95C000DAB71 /* MyTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

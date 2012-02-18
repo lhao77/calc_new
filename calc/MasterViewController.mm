@@ -10,7 +10,7 @@
 
 #import "DetailViewController.h"
 #import "EqInstalmentViewController.h"
-
+#import "MyTableViewController.h"
 #include "def.h"
 
 @implementation MasterViewController
@@ -167,8 +167,14 @@
 //	    }
 //        [self.navigationController pushViewController:self.detailViewController animated:YES];
 //    }
-    extern EqInstalmentViewController *g_EqInstalmentViewController;
-    [self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
+    //extern EqInstalmentViewController *g_EqInstalmentViewController;
+    //[self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
+    
+    MyTableViewController *my = [[MyTableViewController alloc] initWithNibName:nil bundle:nil];
+    my.m_nsarray =[[NSArray alloc] initWithObjects:@"One",@"Two",@"Three",@"Four",nil];
+    
+    NSLog(@"%@",my.m_nsarray);
+    [self.navigationController pushViewController:my animated:YES];
 }
 
 @end

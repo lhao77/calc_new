@@ -17,6 +17,7 @@
 @synthesize yearLabel;
 @synthesize yearTxtField;
 
+@synthesize m_input_eq_payment = _m_input_eq_payment;
 
 -(void) clear
 {
@@ -33,6 +34,25 @@
     self.yearLabel.text = [NSString stringWithUTF8String:str_mgr->GetDescript("STR_LOAN_YEAR", 1).c_str()];
     
     [self clear];
+}
+
+- (void) set_input_eq_payment
+{
+    const char *amount = [self.amountTxtField.text UTF8String];
+    const char *year   = [self.yearTxtField.text UTF8String];
+    const char *interest = [self.interestTxtField.text UTF8String];
+    struct input_eq_payment ti = {true,atof(amount),atoi(year)*12,atof(interest)/100.0f,0.0f,0.0f,0.0f};
+    self.m_input_eq_payment = ti;
+}
+
+- (BOOL) ISNotEmpty
+{
+    if (self.amountTxtField.text == @"" ||
+        self.interestTxtField.text == @"" ||
+        self.yearTxtField.text == @"") {
+        return NO;
+    }
+    return YES;
 }
 
 extern bool isValidNumber(const char *src);
@@ -101,7 +121,7 @@ extern bool isValidNumber(const char *src);
 
 -(CGRect) getFrame
 {
-    return CGRectMake(0.0f,0.0f,320.0f,220.0f);
+    return CGRectMake(0.0f,0.0f,320.0f,120.0f);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -116,9 +136,4 @@ extern bool isValidNumber(const char *src);
     return YES;
 }
 
-- (IBAction)click_ok:(id)sender {
-}
-
-- (IBAction)click_reset:(id)sender {
-}
 @end

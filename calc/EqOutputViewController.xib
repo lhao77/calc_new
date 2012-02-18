@@ -70,10 +70,9 @@
 					<object class="IBUILabel" id="309289219">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{198, 0}, {78, 21}}</string>
+						<string key="NSFrame">{{183, 0}, {93, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -122,7 +121,7 @@
 					<object class="IBUILabel" id="43431230">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{198, 29}, {78, 21}}</string>
+						<string key="NSFrame">{{183, 29}, {93, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
@@ -166,7 +165,7 @@
 					<object class="IBUILabel" id="670207039">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{198, 58}, {78, 21}}</string>
+						<string key="NSFrame">{{183, 58}, {93, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
@@ -210,7 +209,7 @@
 					<object class="IBUILabel" id="420626736">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{198, 87}, {78, 21}}</string>
+						<string key="NSFrame">{{183, 87}, {93, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
@@ -254,7 +253,7 @@
 					<object class="IBUILabel" id="946579111">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{198, 116}, {78, 21}}</string>
+						<string key="NSFrame">{{183, 116}, {93, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
@@ -273,54 +272,10 @@
 						<reference key="IBUIFontDescription" ref="829980710"/>
 						<reference key="IBUIFont" ref="285210101"/>
 					</object>
-					<object class="IBUILabel" id="159003078">
-						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{45, 145}, {119, 21}}</string>
-						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="514711277"/>
-						<string key="NSReuseIdentifierKey">_NS:328</string>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUIContentMode">7</int>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">loan_months</string>
-						<reference key="IBUITextColor" ref="207392943"/>
-						<nil key="IBUIHighlightedColor"/>
-						<int key="IBUIBaselineAdjustment">1</int>
-						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-						<float key="IBUIMinimumFontSize">10</float>
-						<reference key="IBUIFontDescription" ref="143245061"/>
-						<reference key="IBUIFont" ref="578160009"/>
-					</object>
-					<object class="IBUILabel" id="514711277">
-						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{198, 145}, {78, 21}}</string>
-						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
-						<string key="NSReuseIdentifierKey">_NS:328</string>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUIContentMode">7</int>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">lm</string>
-						<reference key="IBUITextColor" ref="207392943"/>
-						<nil key="IBUIHighlightedColor"/>
-						<int key="IBUIBaselineAdjustment">1</int>
-						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUITextAlignment">2</int>
-						<reference key="IBUIFontDescription" ref="829980710"/>
-						<reference key="IBUIFont" ref="285210101"/>
-					</object>
 					<object class="IBUILabel" id="720931456">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{45, 174}, {119, 21}}</string>
+						<string key="NSFrame">{{45, 145}, {119, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="107123690"/>
@@ -342,7 +297,7 @@
 					<object class="IBUILabel" id="107123690">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{198, 174}, {78, 21}}</string>
+						<string key="NSFrame">{{183, 145}, {93, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
@@ -469,22 +424,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">loan_monthsLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="159003078"/>
-					</object>
-					<int key="connectionID">31</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">loan_monthsValueLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="514711277"/>
-					</object>
-					<int key="connectionID">32</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">aver_paymentLabel</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="720931456"/>
@@ -522,8 +461,6 @@
 							<reference ref="420626736"/>
 							<reference ref="346066476"/>
 							<reference ref="946579111"/>
-							<reference ref="159003078"/>
-							<reference ref="514711277"/>
 							<reference ref="720931456"/>
 							<reference ref="107123690"/>
 						</array>
@@ -591,16 +528,6 @@
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">14</int>
-						<reference key="object" ref="159003078"/>
-						<reference key="parent" ref="191373211"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">15</int>
-						<reference key="object" ref="514711277"/>
-						<reference key="parent" ref="191373211"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">16</int>
 						<reference key="object" ref="720931456"/>
 						<reference key="parent" ref="191373211"/>
@@ -622,8 +549,6 @@
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -655,8 +580,6 @@
 						<string key="interest_amountValueLabel">UILabel</string>
 						<string key="loan_amountLabel">UILabel</string>
 						<string key="loan_amountValueLabel">UILabel</string>
-						<string key="loan_monthsLabel">UILabel</string>
-						<string key="loan_monthsValueLabel">UILabel</string>
 						<string key="payment_amountLabel">UILabel</string>
 						<string key="payment_amountValueLabel">UILabel</string>
 					</dictionary>
@@ -699,14 +622,6 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="loan_amountValueLabel">
 							<string key="name">loan_amountValueLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="loan_monthsLabel">
-							<string key="name">loan_monthsLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="loan_monthsValueLabel">
-							<string key="name">loan_monthsValueLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="payment_amountLabel">
