@@ -24,11 +24,16 @@ private:
     static StringMgr *p_StrMgr;
     StringMgr(){}
     std::map<std::string,TypeString> mapTypeString;
+    int lang_idx;
 public:
     static StringMgr* GetStringMgr();
     
     void init();
     std::string GetDescript(std::string name,int lang_idx);
+    std::string GetDescript(std::string name);
+    
+    void setLang_idx(int idx){lang_idx = idx;}
+    int  getLang_idx(){return lang_idx;};
 };
 
 #endif

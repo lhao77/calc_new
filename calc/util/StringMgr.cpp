@@ -52,6 +52,10 @@ void StringMgr::init()
     }
 }
 
+std::string StringMgr::GetDescript(std::string name)
+{
+    return GetDescript(name,lang_idx);
+}
 std::string StringMgr::GetDescript(std::string name,int lang_idx)
 {
     std::string ret("Unknow String");

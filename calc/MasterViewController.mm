@@ -11,6 +11,8 @@
 #import "DetailViewController.h"
 #import "EqInstalmentViewController.h"
 #import "MyTableViewController.h"
+#import "PrepaymentViewController.h"
+#import "OutputViewController.h"
 #include "def.h"
 
 @implementation MasterViewController
@@ -159,6 +161,8 @@
 }
 */
 
+
+extern PrepaymentViewController *g_preViewController;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -169,12 +173,27 @@
 //    }
     //extern EqInstalmentViewController *g_EqInstalmentViewController;
     //[self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
-    
+
+    /*
     MyTableViewController *my = [[MyTableViewController alloc] initWithNibName:nil bundle:nil];
     my.m_nsarray =[[NSArray alloc] initWithObjects:@"One",@"Two",@"Three",@"Four",nil];
-    
     NSLog(@"%@",my.m_nsarray);
     [self.navigationController pushViewController:my animated:YES];
+     */
+    
+//    PrepaymentViewController *pre = [[PrepaymentViewController alloc] initWithNibName:nil bundle:nil];
+//    [self.navigationController pushViewController:pre animated:YES];
+
+    /*
+    std::vector<std::string> vec_str;
+    vec_str.push_back(std::string("11"));
+    vec_str.push_back(std::string("22"));
+   
+    OutputViewController *output = [[OutputViewController alloc] init:UITableViewStyleGrouped withTexts:vec_str withValues:vec_str withCellType:WITH_LABEL];
+    [self.navigationController pushViewController:output animated:YES];
+    */
+    
+    [self.navigationController pushViewController:g_preViewController animated:YES];
 }
 
 @end

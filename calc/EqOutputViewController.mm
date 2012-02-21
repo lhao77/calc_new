@@ -59,6 +59,7 @@
     sprintf(buf,"%.2f",self.m_output_eq_payment.payment_permonth);
     aver_paymentValueLabel.text = [[NSString alloc] initWithCString:buf 
                                                            encoding:NSUTF8StringEncoding];
+    
 //    loan_amountValueLabel.text = (NSString*)[nsarr objectAtIndex:1];
 //    payment_amountValueLabel.text = (NSString*)[nsarr objectAtIndex:2];
 //    interest_amountValueLabel.text = (NSString*)[nsarr objectAtIndex:3];

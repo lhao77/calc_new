@@ -9,9 +9,10 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
-#import "EqInstalmentViewController.h"
 #import "DetailViewController.h"
-
+#import "EqInstalmentViewController.h"
+#import "OutputViewController.h"
+#import "PrepaymentViewController.h"
 #include "def.h"
 #include "StringMgr.h"
 
@@ -40,13 +41,35 @@ void init_string()
     NSLog(@"--%@--",path);
     xml_path = [path UTF8String];
     StringMgr::GetStringMgr()->init();
+    StringMgr::GetStringMgr()->setLang_idx(1);
 }
 
 EqInstalmentViewController *g_EqInstalmentViewController;
+OutputViewController *g_preInputViewController;
+OutputViewController *g_preOutputViewController;
+
+OutputViewController *g_eqpayInputViewController;
+OutputViewController *g_eqpayOutputViewController;
+PrepaymentViewController *g_preViewController;
 
 void init()
 {
     g_EqInstalmentViewController = [[EqInstalmentViewController alloc] initWithNibName:nil bundle:nil];
+    
+    //初始化等额本金输入view
+    StringMgr* strMgr = StringMgr::GetStringMgr();
+    std::vector<std::string> vec_eq_payment_label;
+    vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_AMOUNT"));
+    vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_YEAR"));
+    vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_INTEREST"));
+    std::vector<std::string> vec_eq_payment_value;
+    vec_eq_payment_value.push_back("");
+    vec_eq_payment_value.push_back("");
+    vec_eq_payment_value.push_back("");
+    
+    g_eqpayInputViewController = [[OutputViewController alloc] init:UITableViewStyleGrouped withTexts:vec_eq_payment_label withValues:vec_eq_payment_value withCellType:WITH_TEXTFIELD];
+    g_preViewController = [[PrepaymentViewController alloc] initWithNibName:nil bundle:nil];
+    g_preViewController.preInputViewController = g_eqpayInputViewController;
 }
 
 @implementation AppDelegate
@@ -56,10 +79,10 @@ void init()
 @synthesize splitViewController = _splitViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    init();
+{    
     init_map_func();
     init_string();
+    init();
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
