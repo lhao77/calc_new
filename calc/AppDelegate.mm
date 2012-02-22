@@ -50,26 +50,39 @@ OutputViewController *g_preOutputViewController;
 
 OutputViewController *g_eqpayInputViewController;
 OutputViewController *g_eqpayOutputViewController;
-EqpaymentViewController *g_preViewController;
+EqpaymentViewController *g_eqpayViewController;
 
 void init()
 {
     g_EqInstalmentViewController = [[EqInstalmentViewController alloc] initWithNibName:nil bundle:nil];
     
-    //初始化等额本金输入view
+    
     StringMgr* strMgr = StringMgr::GetStringMgr();
+    //初始化等额本金输入view
     std::vector<std::string> vec_eq_payment_label;
     vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_AMOUNT"));
     vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_YEAR"));
     vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_INTEREST"));
-    std::vector<std::string> vec_eq_payment_value;
-    vec_eq_payment_value.push_back("");
-    vec_eq_payment_value.push_back("");
-    vec_eq_payment_value.push_back("");
+    std::vector<std::string> vec_eq_payment_value(vec_eq_payment_label.size(),"");
+
+    //初始化等额本金输出view
+    std::vector<std::string> vec_eqpayout_label1;
+    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_HOUSE_PRICE"));
+    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_INITIAL_PAYMENT"));
+    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_LOAN_AMOUNT"));
+    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_PAYENT_AMOUNT"));
+    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_INTERST_AMOUNT"));
+    std::vector<std::string> vec_eqpayout_value1(vec_eqpayout_label1.size(),"");
+    
+    //vec_eqpayout_label.push_back(strMgr->GetDescript("STR_HOUSE_PRICE"));
+    
+    g_eqpayViewController = [[EqpaymentViewController alloc] initWithNibName:nil bundle:nil];
     
     g_eqpayInputViewController = [[OutputViewController alloc] init:UITableViewStyleGrouped withTexts:vec_eq_payment_label withValues:vec_eq_payment_value withCellType:WITH_TEXTFIELD];
-    g_preViewController = [[EqpaymentViewController alloc] initWithNibName:nil bundle:nil];
-    g_preViewController.eqInputViewController = g_eqpayInputViewController;
+    g_eqpayOutputViewController = [[OutputViewController alloc] init:UITableViewStyleGrouped withTexts:vec_eqpayout_label1 withValues:vec_eqpayout_value1 withCellType:WITH_LABEL];
+    
+    g_eqpayViewController.eqpayInputViewController = g_eqpayInputViewController;
+    g_eqpayViewController.eqpayOutputViewController = g_eqpayOutputViewController;
 }
 
 @implementation AppDelegate

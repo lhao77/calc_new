@@ -11,8 +11,9 @@
 
 @implementation OutputViewController
 
-@synthesize m_nsarray1;
-@synthesize m_nsarray2;
+@synthesize m_labelControls;
+@synthesize m_valueControls;
+@synthesize m_cellControls;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,6 +30,10 @@
     texts = txts;
     values = vls;
     cell_type = type;
+    
+    if (!m_cellControls) {
+        m_cellControls = [[NSMutableArray alloc] init];
+    }
     
     return self;
 }
@@ -60,7 +65,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //self.view.frame = [self getFrame];
-    CGRect rect = self.view.frame;
+    //CGRect rect = self.view.frame;
     //NSLog(@"%@",self.view.frame);
 }
 
@@ -127,6 +132,30 @@
 //    return cell;
 //}
 
+-(NSString*) getCellValue:(int)index
+{
+    MyTableViewCell* cell = (MyTableViewCell*)[m_cellControls objectAtIndex:index];
+    if ([cell type] == WITH_LABEL) {
+        return cell.myLabel.text;
+    }
+    else
+    {
+        return cell.myTextField.text;
+    }
+}
+
+-(void) setCellValue:(int)index withValue:(NSString*)value
+{
+    MyTableViewCell* cell = (MyTableViewCell*)[m_cellControls objectAtIndex:index];
+    if ([cell type] == WITH_LABEL) {
+        cell.myLabel.text = value;
+    }
+    else
+    {
+        cell.myTextField.text = value;
+    }
+}
+
 - (UITableViewCell *) CreateCell:(int)type withIndex:(int) index
 {
     
@@ -134,15 +163,15 @@
     
     MyTableViewCell *mycell = [[MyTableViewCell alloc] init:type];
     //MMyVC *mycell = [[MMyVC alloc] init:type];
-    NSString* text = [[NSString alloc] initWithCString:texts[index].c_str() 
-                                                  encoding:NSUTF8StringEncoding];
-    NSString* value = [[NSString alloc] initWithCString:values[index].c_str() 
-                                                   encoding:NSUTF8StringEncoding];
+    NSString* text = [[NSString alloc] initWithCString:texts[index].c_str() encoding:NSUTF8StringEncoding];
+    NSString* value = [[NSString alloc] initWithCString:values[index].c_str() encoding:NSUTF8StringEncoding];
     [mycell setText:text withExternalText:value];
     [mycell setIndex:index];
     [mycell.myTextField setDelegate:(id)self];
     cell = mycell.myTableViewCell;
-
+    
+    [m_cellControls insertObject:mycell atIndex:index];
+    
     return cell;
 }
 
@@ -152,7 +181,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
-        cell = [self CreateCell:cell_type withIndex:indexPath.row];        
+        cell = [self CreateCell:cell_type withIndex:indexPath.row];
+        
     }
     
     return cell;

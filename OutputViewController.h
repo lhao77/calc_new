@@ -29,8 +29,12 @@
 
 - (id)init:(UITableViewStyle)style withTexts:(std::vector<std::string>&) txts withValues:(std::vector<std::string>&) vls withCellType:(int)type;
 
+-(NSString*) getCellValue:(int)index;
+-(void) setCellValue:(int)index withValue:(NSString*)value;
+
 -(CGRect) getFrame;
 
-@property (nonatomic, retain) NSArray *m_nsarray1;
-@property (nonatomic, retain) NSArray *m_nsarray2;
+@property (nonatomic, retain) NSArray *m_labelControls;
+@property (nonatomic, retain) NSArray *m_valueControls;
+@property (nonatomic, retain) NSMutableArray *m_cellControls;
 @end

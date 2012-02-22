@@ -15,6 +15,11 @@
 @interface EqpaymentViewController : BaseViewController
 
 @property (unsafe_unretained, nonatomic) IBOutlet UIScrollView *mainScrollView;
-@property (strong, nonatomic) OutputViewController *eqInputViewController;
-@property (strong, nonatomic) OutputViewController *preOutputViewController;
+@property (strong, nonatomic) OutputViewController *eqpayInputViewController;
+@property (strong, nonatomic) OutputViewController *eqpayOutputViewController;
+
+@property (strong, nonatomic) NSMutableArray *inputValues;
+@property (strong, nonatomic) NSMutableArray *outputValues;
+@property (strong, nonatomic) NSMutableArray *outputPermonthsValues;
+
 @end

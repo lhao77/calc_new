@@ -98,6 +98,8 @@ struct result_prepayment_eq_installment
     bool   bpay_all;
 };
 
-extern //等额本息还款法
-struct output_eq_installment_payment calc_eq_installment_payment(struct input_eq_payment input);
+//等额本息还款法
+extern struct output_eq_installment_payment calc_eq_installment_payment(struct input_eq_payment input);
+//等额本金还款法
+extern struct output_eq_interest_payment calc_eq_interest_payment(struct input_eq_payment input);
 #endif

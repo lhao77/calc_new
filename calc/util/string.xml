@@ -56,6 +56,14 @@
         <descript lang="1">利息总额</descript>
         <descript lang="2">INTERST AMOUNT</descript>
     </item>
+    <item name="STR_PAMENT_BY_MONTH">
+        <descript lang="1">每月还款</descript>
+        <descript lang="2">PAMENT BY MONTH</descript>
+    </item>
+    <item name="STR_PAMENT_NTH_MONTH">
+        <descript lang="1">第%d月还款</descript>
+        <descript lang="2">PAMENT IN MONTH:%d</descript>
+    </item>
     <item name="STR_OK">
         <descript lang="1">计算</descript>
         <descript lang="2">OK</descript>

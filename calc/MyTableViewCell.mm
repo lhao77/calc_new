@@ -35,7 +35,7 @@
         {
             self.myTextField = [[UITextField alloc] initWithFrame:exframe];
             [self.myTableViewCell addSubview:self.myTextField];
-            self.myTextField.delegate = (id)self;
+            //self.myTextField.delegate = (id)self;
         }
     }
     return self;

@@ -162,7 +162,7 @@
 */
 
 
-extern EqpaymentViewController *g_preViewController;
+extern EqpaymentViewController *g_eqpayViewController;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -193,7 +193,7 @@ extern EqpaymentViewController *g_preViewController;
     [self.navigationController pushViewController:output animated:YES];
     */
     
-    [self.navigationController pushViewController:g_preViewController animated:YES];
+    [self.navigationController pushViewController:g_eqpayViewController animated:YES];
 }
 
 @end
