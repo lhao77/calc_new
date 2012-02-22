@@ -23,6 +23,7 @@ enum
     int             type;
     int             index;
     //std::string&    str;
+    CGRect          rect;
 }
 
 @property (nonatomic, retain) OutputViewController      *outputViewController;
@@ -31,7 +32,7 @@ enum
 @property (nonatomic, retain) UILabel         *myLabel;
 @property (nonatomic, retain) UITextField     *myTextField;
 
-
++ (CGRect)getFrame;
 
 - (int)type;
 - (void)setType:(int)newValue;

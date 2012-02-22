@@ -15,4 +15,6 @@
 
 - (void)setBorder:(id)sender borderWidth:(double) width  color:(UIColor*)color;
 
+- (void) handleTextFieldInput:(NSNotification*) notify;
+
 @end

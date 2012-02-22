@@ -1,5 +1,5 @@
 //
-//  PrepaymentViewController.h
+//  EqpaymentViewController.h
 //  calc
 //
 //  Created by hao luo on 12-2-19.
@@ -12,9 +12,9 @@
 #import "OutputViewController.h"
 #import "def.h"
 
-@interface PrepaymentViewController : BaseViewController
+@interface EqpaymentViewController : BaseViewController
 
 @property (unsafe_unretained, nonatomic) IBOutlet UIScrollView *mainScrollView;
-@property (strong, nonatomic) OutputViewController *preInputViewController;
+@property (strong, nonatomic) OutputViewController *eqInputViewController;
 @property (strong, nonatomic) OutputViewController *preOutputViewController;
 @end

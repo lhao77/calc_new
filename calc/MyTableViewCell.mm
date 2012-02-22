@@ -68,7 +68,12 @@
 
 - (id)init:(int)type
 {
-    return [self init:CGRectMake(20.0, 70.0, 280.0, 50.0) externalFrame:CGRectMake(160.0, 2.0, 120.0, 40.0) type:type];
+    return [self init:CGRectMake(20.0, 0.0, 280.0, 50.0) externalFrame:CGRectMake(160.0, 10.0, 120.0, 40.0) type:type];
+}
+
++ (CGRect)getFrame
+{
+    return CGRectMake(20.0, 0.0, 280.0, 50.0);
 }
 
 /*
@@ -131,13 +136,6 @@
 
 - (void)setIndex:(int)newValue {
     index = newValue;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self setValueByIndex:index withTextFieldValue:textField.text];
-    [textField resignFirstResponder];
-    return YES;
 }
 
 @end

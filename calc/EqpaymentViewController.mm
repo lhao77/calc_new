@@ -1,16 +1,16 @@
 //
-//  PrepaymentViewController.m
+//  EqpaymentViewController.m
 //  calc
 //
 //  Created by hao luo on 12-2-19.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "PrepaymentViewController.h"
+#import "EqpaymentViewController.h"
 
-@implementation PrepaymentViewController
+@implementation EqpaymentViewController
 @synthesize mainScrollView;
-@synthesize preInputViewController;
+@synthesize eqInputViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,15 +31,34 @@
 
 #pragma mark - View lifecycle
 
+-(void)click_ok:(id)sender
+{
+    int i = 3;
+}
+
+- (UIButton*)createButton:(int)startHeight
+{
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    int width = 100;
+    button.frame = CGRectMake(320/2-width-20,startHeight,width,40);
+    // 注册按钮按下时的处理函数
+    [button addTarget:self action:@selector(click_ok:)
+       forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //self.preInputViewController = [[OutputViewController alloc] initWithNibName:nil bundle:nil];    
-    [self.mainScrollView addSubview:preInputViewController.view];
+    [self.mainScrollView addSubview:eqInputViewController.view];
     [self.mainScrollView setContentSize:CGSizeMake(320,800)];
     self.mainScrollView.delegate = (id)self;
+    
+    CGRect rect = [self.eqInputViewController getFrame];
+    [self.mainScrollView addSubview:[self createButton:(rect.origin.y+rect.size.height+40)]];
 
 }
 

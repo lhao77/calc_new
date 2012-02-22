@@ -12,7 +12,7 @@
 #import "DetailViewController.h"
 #import "EqInstalmentViewController.h"
 #import "OutputViewController.h"
-#import "PrepaymentViewController.h"
+#import "EqpaymentViewController.h"
 #include "def.h"
 #include "StringMgr.h"
 
@@ -45,12 +45,12 @@ void init_string()
 }
 
 EqInstalmentViewController *g_EqInstalmentViewController;
-OutputViewController *g_preInputViewController;
+OutputViewController *g_eqInputViewController;
 OutputViewController *g_preOutputViewController;
 
 OutputViewController *g_eqpayInputViewController;
 OutputViewController *g_eqpayOutputViewController;
-PrepaymentViewController *g_preViewController;
+EqpaymentViewController *g_preViewController;
 
 void init()
 {
@@ -68,8 +68,8 @@ void init()
     vec_eq_payment_value.push_back("");
     
     g_eqpayInputViewController = [[OutputViewController alloc] init:UITableViewStyleGrouped withTexts:vec_eq_payment_label withValues:vec_eq_payment_value withCellType:WITH_TEXTFIELD];
-    g_preViewController = [[PrepaymentViewController alloc] initWithNibName:nil bundle:nil];
-    g_preViewController.preInputViewController = g_eqpayInputViewController;
+    g_preViewController = [[EqpaymentViewController alloc] initWithNibName:nil bundle:nil];
+    g_preViewController.eqInputViewController = g_eqpayInputViewController;
 }
 
 @implementation AppDelegate

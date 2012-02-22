@@ -11,7 +11,7 @@
 #import "DetailViewController.h"
 #import "EqInstalmentViewController.h"
 #import "MyTableViewController.h"
-#import "PrepaymentViewController.h"
+#import "EqpaymentViewController.h"
 #import "OutputViewController.h"
 #include "def.h"
 
@@ -162,7 +162,7 @@
 */
 
 
-extern PrepaymentViewController *g_preViewController;
+extern EqpaymentViewController *g_preViewController;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -181,7 +181,7 @@ extern PrepaymentViewController *g_preViewController;
     [self.navigationController pushViewController:my animated:YES];
      */
     
-//    PrepaymentViewController *pre = [[PrepaymentViewController alloc] initWithNibName:nil bundle:nil];
+//    EqpaymentViewController *pre = [[EqpaymentViewController alloc] initWithNibName:nil bundle:nil];
 //    [self.navigationController pushViewController:pre animated:YES];
 
     /*

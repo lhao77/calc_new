@@ -29,6 +29,8 @@
 
 - (id)init:(UITableViewStyle)style withTexts:(std::vector<std::string>&) txts withValues:(std::vector<std::string>&) vls withCellType:(int)type;
 
+-(CGRect) getFrame;
+
 @property (nonatomic, retain) NSArray *m_nsarray1;
 @property (nonatomic, retain) NSArray *m_nsarray2;
 @end

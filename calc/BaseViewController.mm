@@ -77,6 +77,7 @@
     
     self.view.userInteractionEnabled =YES;
     //self.user
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldInput:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -95,6 +96,22 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+extern bool isValidNumber(const char*);
+- (void) handleTextFieldInput:(NSNotification*) notify
+{
+    UITextField *tf = [notify object];
+    //NSLog(@"--%@--",nstr);
+    const char *input = [tf.text UTF8String];
+    if(!isValidNumber(input))
+    {
+        char tmp[50];
+        strcpy(tmp, input);
+        tmp[strlen(tmp)-1] = '\0';
+        tf.text = [[NSString alloc] initWithCString:tmp 
+                                           encoding:NSUTF8StringEncoding];
+    };
 }
 
 @end

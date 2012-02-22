@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E2490DB14F10B08003F9EA8 /* PrepaymentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E2490D914F10B08003F9EA8 /* PrepaymentViewController.mm */; };
-		2E2490DC14F10B08003F9EA8 /* PrepaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2490DA14F10B08003F9EA8 /* PrepaymentViewController.xib */; };
+		2E2490DB14F10B08003F9EA8 /* EqpaymentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E2490D914F10B08003F9EA8 /* EqpaymentViewController.mm */; };
+		2E2490DC14F10B08003F9EA8 /* EqpaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2490DA14F10B08003F9EA8 /* EqpaymentViewController.xib */; };
 		2E2490E014F1154E003F9EA8 /* OutputViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E2490DE14F1154E003F9EA8 /* OutputViewController.mm */; };
 		2E2490E114F1154E003F9EA8 /* OutputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2490DF14F1154E003F9EA8 /* OutputViewController.xib */; };
 		2E2490ED14F34BEF003F9EA8 /* MyTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E2490EC14F34BEF003F9EA8 /* MyTableViewCell.mm */; };
@@ -45,9 +45,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E2490D814F10B08003F9EA8 /* PrepaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrepaymentViewController.h; sourceTree = "<group>"; };
-		2E2490D914F10B08003F9EA8 /* PrepaymentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PrepaymentViewController.mm; sourceTree = "<group>"; };
-		2E2490DA14F10B08003F9EA8 /* PrepaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrepaymentViewController.xib; sourceTree = "<group>"; };
+		2E2490D814F10B08003F9EA8 /* EqpaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqpaymentViewController.h; sourceTree = "<group>"; };
+		2E2490D914F10B08003F9EA8 /* EqpaymentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqpaymentViewController.mm; sourceTree = "<group>"; };
+		2E2490DA14F10B08003F9EA8 /* EqpaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqpaymentViewController.xib; sourceTree = "<group>"; };
 		2E2490DD14F1154E003F9EA8 /* OutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputViewController.h; path = ../OutputViewController.h; sourceTree = "<group>"; };
 		2E2490DE14F1154E003F9EA8 /* OutputViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OutputViewController.mm; path = ../OutputViewController.mm; sourceTree = "<group>"; };
 		2E2490DF14F1154E003F9EA8 /* OutputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OutputViewController.xib; path = ../OutputViewController.xib; sourceTree = "<group>"; };
@@ -161,9 +161,9 @@
 				2E9273C314E7BD3300C52C2A /* EqInstalmentViewController.h */,
 				2E9273C414E7BD3300C52C2A /* EqInstalmentViewController.mm */,
 				2E9273C514E7BD3300C52C2A /* EqInstalmentViewController.xib */,
-				2E2490D814F10B08003F9EA8 /* PrepaymentViewController.h */,
-				2E2490D914F10B08003F9EA8 /* PrepaymentViewController.mm */,
-				2E2490DA14F10B08003F9EA8 /* PrepaymentViewController.xib */,
+				2E2490D814F10B08003F9EA8 /* EqpaymentViewController.h */,
+				2E2490D914F10B08003F9EA8 /* EqpaymentViewController.mm */,
+				2E2490DA14F10B08003F9EA8 /* EqpaymentViewController.xib */,
 				2E92739414E7AC7800C52C2A /* Supporting Files */,
 				2E8B2BD314E93F8F00FCEB63 /* EqInputViewController.h */,
 				2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */,
@@ -283,7 +283,7 @@
 				2EECAB9A14E94ACE00C92334 /* EqOutputViewController.xib in Resources */,
 				2E8C66D814EBD95C000DAB71 /* MyTableViewController.xib in Resources */,
 				2E8C66DB14EBDBDC000DAB71 /* tableviewcell.xib in Resources */,
-				2E2490DC14F10B08003F9EA8 /* PrepaymentViewController.xib in Resources */,
+				2E2490DC14F10B08003F9EA8 /* EqpaymentViewController.xib in Resources */,
 				2E2490E114F1154E003F9EA8 /* OutputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +311,7 @@
 				2E8B2BD614E93F8F00FCEB63 /* EqInputViewController.mm in Sources */,
 				2EECAB9914E94ACE00C92334 /* EqOutputViewController.mm in Sources */,
 				2E8C66D714EBD95C000DAB71 /* MyTableViewController.mm in Sources */,
-				2E2490DB14F10B08003F9EA8 /* PrepaymentViewController.mm in Sources */,
+				2E2490DB14F10B08003F9EA8 /* EqpaymentViewController.mm in Sources */,
 				2E2490E014F1154E003F9EA8 /* OutputViewController.mm in Sources */,
 				2E2490ED14F34BEF003F9EA8 /* MyTableViewCell.mm in Sources */,
 			);

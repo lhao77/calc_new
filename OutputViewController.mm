@@ -33,6 +33,13 @@
     return self;
 }
 
+-(CGRect) getFrame
+{
+    CGRect rect = [MyTableViewCell getFrame];
+    rect.size.height *= texts.size();
+    return rect;
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -52,6 +59,9 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.view.frame = [self getFrame];
+    CGRect rect = self.view.frame;
+    //NSLog(@"%@",self.view.frame);
 }
 
 - (void)viewDidUnload
