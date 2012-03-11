@@ -11,6 +11,8 @@
 #import "BaseViewController.h"
 #import "OutputViewController.h"
 #import "def.h"
+//#import "TwoButtons.h"
+#import "TwoButton.h"
 
 @interface EqpaymentViewController : BaseViewController
 
@@ -21,5 +23,8 @@
 @property (strong, nonatomic) NSMutableArray *inputValues;
 @property (strong, nonatomic) NSMutableArray *outputValues;
 @property (strong, nonatomic) NSMutableArray *outputPermonthsValues;
+
+//@property (strong, nonatomic) TwoButtons *two;
+@property (strong, nonatomic) TwoButton *two;
 
 @end

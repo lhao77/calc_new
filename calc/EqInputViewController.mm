@@ -90,6 +90,15 @@ extern bool isValidNumber(const char *src);
 }
 
 #pragma mark - View lifecycle
+/*
+- (void)loadView
+{
+    UITextView* textView=[ [ UITextView alloc ] initWithFrame:CGRectMake(0, 0, 200, 50)];    
+    textView.text=@"Hello";
+    self.view=textView;
+    //[self.view setFrame:CGRectMake(20, 20, 280, 150)];
+}
+*/
 
 - (void)viewDidLoad
 {
@@ -103,7 +112,6 @@ extern bool isValidNumber(const char *src);
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldInput:) name:UITextFieldTextDidChangeNotification object:nil];
     self.view.frame = [self getFrame];
-    
 }
 
 - (void)viewDidUnload

@@ -5,8 +5,12 @@
 //  Created by hao luo on 12-2-19.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
+#include "StringMgr.h"
+
+#import "EqInputViewController.h"
 
 #import "EqpaymentViewController.h"
+extern OutputViewController *g_eqpayPerMonthOutputViewController;
 
 @implementation EqpaymentViewController
 @synthesize mainScrollView;
@@ -15,6 +19,30 @@
 @synthesize inputValues;
 @synthesize outputValues;
 @synthesize outputPermonthsValues;
+
+@synthesize two;
+
+- (void)showWindow
+{
+    /*
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(100.0, 20.0, 200.0, 100.0)];
+    view1.frame = CGRectMake(100.0, 20.0, 200.0, 100.0);
+    view1.alpha = 1.000;
+    UIViewController *uvc = [[UIViewController alloc] init];
+    uvc.view = view1;
+    uvc.modalPresentationStyle = UIModalPresentationFormSheet;
+    uvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentModalViewController: uvc animated: YES];
+    uvc.view.superview.frame = CGRectMake(0,20,320,460);
+    */
+    
+
+    EqInputViewController *eqin = [[EqInputViewController alloc]initWithNibName:nil bundle:nil];
+    eqin.view.frame = CGRectMake(50, 10, 300, 120);
+    eqin.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentModalViewController: eqin animated: YES];
+    eqin.view.superview.frame = CGRectMake(0,20,320,460);
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +72,12 @@
 }
 
 #pragma mark - View lifecycle
+
+-(void)clear
+{
+    [inputValues removeAllObjects];
+    [outputValues removeAllObjects];
+}
 
 -(void)getInputValues
 {
@@ -94,53 +128,64 @@
 
 -(void)click_ok:(id)sender
 {
-    [self getInputValues];
-    [self calc];
-    [self showResult];
+    [self clear];
+//    [self getInputValues];
+//    [self calc];
+//    [self showResult];
+    [self showWindow];
 }
 
 -(void)click_reset:(id)sender
 {
-    int i = 3;
-}
-
-- (UIButton*)createButton:(SEL)sel withFrame:(CGRect) rect
-{
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self clear];
     
-    button.frame = rect;
-    // 注册按钮按下时的处理函数
-    [button addTarget:self action:sel
-       forControlEvents:UIControlEventTouchUpInside];
-    return button;
+    int count = [self.eqpayOutputViewController.m_cellControls count];
+    for (int i=0; i<count; i++) {
+        [self.eqpayOutputViewController setCellValue:i withValue:[NSString stringWithCString:"" encoding:NSUTF8StringEncoding]];
+    }
+    
+    count = [self.eqpayInputViewController.m_cellControls count];
+    for (int i=0; i<count; i++) {
+        [self.eqpayInputViewController setCellValue:i withValue:[NSString stringWithCString:"" encoding:NSUTF8StringEncoding]];
+    }
 }
 
 -(void)initOk_ResetButton
 {
     const float button_width = 100.0f;
     const float button_height = 40.0f;
-    CGRect rect = [self.eqpayInputViewController getFrame];
+    const float button_distance = 10.0f;
+    
+    CGRect rect = [self.eqpayInputViewController getTavbleViewCellsFrame];
 
-    [self.mainScrollView addSubview:[self createButton:(@selector(click_ok:)) withFrame:CGRectMake(320/2-button_width-20,(rect.origin.y+rect.size.height+40),button_width,button_height)]];
-    [self.mainScrollView addSubview:[self createButton:(@selector(click_reset:)) withFrame:CGRectMake(320/2+20,(rect.origin.y+rect.size.height+40),button_width,button_height)]];
+    std::string str = StringMgr::GetStringMgr()->GetDescript("STR_OK");
+    [self.mainScrollView addSubview:[self createButton:(@selector(click_ok:)) withFrame:CGRectMake(320/2-button_width-20,(rect.origin.y+rect.size.height+button_distance),button_width,button_height) withTitle:[NSString stringWithCString:str.c_str() encoding:NSUTF8StringEncoding]]];
+    
+    str = StringMgr::GetStringMgr()->GetDescript("STR_RESET");
+    [self.mainScrollView addSubview:[self createButton:(@selector(click_reset:)) withFrame:CGRectMake(320/2+20,(rect.origin.y+rect.size.height+button_distance),button_width,button_height) withTitle:[NSString stringWithCString:str.c_str() encoding:NSUTF8StringEncoding]]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    CGRect rect = [self.eqpayInputViewController getTavbleViewCellsFrame];
+    CGRect out_rect = [self.eqpayOutputViewController getTavbleViewCellsFrame];
+
+    const float tableview_dist = 40;
+    rect = CGRectMake(0, 0, 320, rect.size.height+tableview_dist);
+    self.eqpayInputViewController.view.frame = rect;
     [self.mainScrollView addSubview:eqpayInputViewController.view];
     
-    const float button_width = 100.0f;
-    const float button_height = 40.0f;
-    CGRect rect = [self.eqpayInputViewController getFrame];
+    [self initOk_ResetButton];
     
-    [self.mainScrollView addSubview:[self createButton:(@selector(click_ok:)) withFrame:CGRectMake(320/2-button_width-20,(rect.origin.y+rect.size.height+40),button_width,button_height)]];
-    [self.mainScrollView addSubview:[self createButton:(@selector(click_reset:)) withFrame:CGRectMake(320/2+20,(rect.origin.y+rect.size.height+40),button_width,button_height)]];
-
-    CGRect out_rect = [self.eqpayOutputViewController getFrame];
-    eqpayOutputViewController.view.frame = CGRectMake(0, rect.origin.y+rect.size.height+80, 320, out_rect.size.height+80);
+    //test control
+    CGRect test = CGRectMake(20, 500, 200, 50);
+    two = [[TwoButton alloc]init:CGRectMake(0, 0, 200, 50) leftTitle:@"Yes" rightTitle:@"No"];
+    [two setFrame:test];
+    [self.mainScrollView addSubview:two];
+        
+    eqpayOutputViewController.view.frame = CGRectMake(0, rect.origin.y+rect.size.height+18, 320, out_rect.size.height+tableview_dist);
     
     [self.mainScrollView addSubview:eqpayOutputViewController.view];
     [self.mainScrollView setContentSize:CGSizeMake(320,800)];

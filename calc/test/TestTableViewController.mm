@@ -1,54 +1,53 @@
 //
-//  OutputViewController.m
+//  TestTableViewController.m
 //  calc
 //
-//  Created by hao luo on 12-2-19.
+//  Created by hao luo on 12-3-1.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "OutputViewController.h"
-//#import "MMyVC.h"
+#import "TestTableViewController.h"
 
-@implementation OutputViewController
 
-@synthesize m_cellControls;
+@implementation TestTableViewController
+
+@synthesize items;
+
+-(NSMutableDictionary*)createOneByIndex:(int) i
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    char tmp[20];
+    sprintf(tmp, "%d",i);
+    [dict setObject:[NSString stringWithCString:tmp] forKey:@"tag"];
+    
+    int j = i%3==0?1:2;
+    sprintf(tmp, "%d",j);
+    [dict setObject:[NSString stringWithCString:tmp] forKey:@"type"];
+    sprintf(tmp,"i am %d",i);
+    [dict setObject:[NSString stringWithCString:tmp] forKey:@"title"];
+    
+    return dict;
+}
+
+- (void)initData
+{
+    items = [[NSMutableArray alloc] init];
+    for (int i=0; i<10; i++) {
+        NSMutableDictionary *dict = [self createOneByIndex:i];
+        
+        [items addObject:dict];
+    }
+    
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        [self initData];
     }
     return self;
-}
-
-- (id)init:(UITableViewStyle)style withTexts:(std::vector< std::vector<std::string> >&) txts withValues:(std::vector< std::vector<std::string> >&) vls withCellType:(int)type
-{
-    self = [self initWithStyle:style];
-    texts = txts;
-    values = vls;
-    cell_type = type;
-    
-    if (!m_cellControls) {
-        m_cellControls = [[NSMutableArray alloc] init];
-        for (int i=0; i<txts.size(); i++) {
-            NSMutableArray *nsm = [[NSMutableArray alloc] init];
-            [m_cellControls insertObject:nsm atIndex:i];
-        }
-    }
-    
-    return self;
-}
-
--(CGRect) getTavbleViewCellsFrame
-{
-    CGRect rect = [MyTableViewCell getFrame];
-    int count = 0;
-    for (int i=0; i<texts.size(); i++) {
-        count += texts[i].size();
-    }
-    rect.size.height *= count;
-    return rect;
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +56,26 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+//add or remove cell    注意先后顺序的不同
+- (void) updateCell
+{
+    [items removeObjectAtIndex:5];
+    //[items addObject: [self createOneByIndex:16]];
+    [items insertObject:[self createOneByIndex:11] atIndex:5];
+    [items insertObject:[self createOneByIndex:16] atIndex:8];
+    //[items removeObjectAtIndex:5];
+
+    
+    NSArray *delIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:5 inSection:0],nil];
+    NSArray *insertIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:5 inSection:0],[NSIndexPath indexPathForRow:8 inSection:0],nil];
+    UITableView *tv = (UITableView*)self.view;
+    [tv beginUpdates];
+    [tv insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationRight];
+[tv deleteRowsAtIndexPaths:delIndexPaths withRowAnimation:UITableViewRowAnimationRight];
+        [tv endUpdates];
+    
 }
 
 #pragma mark - View lifecycle
@@ -70,9 +89,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    //self.view.frame = [self getFrame];
-    //CGRect rect = self.view.frame;
-    //NSLog(@"%@",self.view.frame);
 }
 
 - (void)viewDidUnload
@@ -85,6 +101,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    static int i =0;
+    if (i==1) {
+        [self updateCell];
+    }
+    i++;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -114,93 +135,47 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return texts.size();
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return texts[section].size();
+    return [items count];
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"Cell";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
-
--(NSString*) getCellValue:(int)index
-{
-    MyTableViewCell* cell = (MyTableViewCell*)[m_cellControls objectAtIndex:index];
-    if ([cell type] == WITH_LABEL) {
-        return cell.myLabel.text;
-    }
-    else
-    {
-        return cell.myTextField.text;
-    }
-}
-
--(void) setCellValue:(int)index withValue:(NSString*)value
-{
-    MyTableViewCell* cell = (MyTableViewCell*)[m_cellControls objectAtIndex:index];
-    if ([cell type] == WITH_LABEL) {
-        cell.myLabel.text = value;
-    }
-    else
-    {
-        cell.myTextField.text = value;
-    }
-}
-
-- (UITableViewCell *) CreateCell:(int)type withIndexPath:(NSIndexPath *)indexPath
-{
-    
-    UITableViewCell *cell;
-    
-    MyTableViewCell *mycell = [[MyTableViewCell alloc] init:type];
-    //MMyVC *mycell = [[MMyVC alloc] init:type];
-    NSString* text = [[NSString alloc] initWithCString:texts[indexPath.section][indexPath.row].c_str() encoding:NSUTF8StringEncoding];
-    NSString* value = [[NSString alloc] initWithCString:values[indexPath.section][indexPath.row].c_str() encoding:NSUTF8StringEncoding];
-    [mycell setText:text withExternalText:value];
-    [mycell.myTextField setDelegate:(id)self];
-    cell = mycell.myTableViewCell;
-    
-    [(NSMutableArray*)[m_cellControls objectAtIndex:indexPath.section] insertObject:mycell atIndex:indexPath.row];
-    
-    return cell;
-}
-
+#import "EqInstalmentViewController.h"
+extern EqInstalmentViewController *g_EqInstalmentViewController;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
     if (cell == nil) {
-        cell = [self CreateCell:cell_type withIndexPath:indexPath];
-        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    NSMutableDictionary *md = [items objectAtIndex:indexPath.row];    
+    cell.tag = atoi([[md objectForKey:@"tag"] UTF8String]);
+    [cell setText:[md objectForKey:@"title"]];
+    
+    if (indexPath.row%3==0) {
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        //cell.accessoryView = g_EqInstalmentViewController.view;
     }
     
     return cell;
 }
 
-
+/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return NO;
+    return YES;
 }
-
+*/
 
 /*
 // Override to support editing the table view.
@@ -233,7 +208,7 @@
 */
 
 #pragma mark - Table view delegate
-
+#import "AppDelegate.h"
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
@@ -242,38 +217,20 @@
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */    
+     */
+    //[self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    [app.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
 }
 
--(void) setTexts:(std::vector< std::vector<std::string> >&)txts
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    texts = txts;
-}
--(void) setValues:(std::vector< std::vector<std::string> >&)vls
-{
-    values = vls;
-}
--(std::vector< std::vector<std::string> >) getValues
-{
-    return values;
-}
--(void) setCell_type:(int)type
-{
-    cell_type = type;
-}
--(int) getCell_type
-{
-    return cell_type;
-}
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    UITableViewCell *ui = (UITableViewCell*)[textField superview];
-    NSLog(@"MyRow:%d",[self.tableView indexPathForCell:ui].row); 
-}
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{    
-    [textField resignFirstResponder];
-    return YES;
+    //g_EqInstalmentViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    //[self presentModalViewController:g_EqInstalmentViewController animated:YES];
+    //[self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
+    
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    [app.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
 }
 
 @end

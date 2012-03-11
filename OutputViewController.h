@@ -15,26 +15,24 @@
 
 @interface OutputViewController : UITableViewController
 {
-    std::vector<std::string> texts;
-    std::vector<std::string> values;
+    std::vector< std::vector<std::string> > texts;
+    std::vector< std::vector<std::string> > values;
     
     int cell_type;
 }
 
--(void) setTexts:(std::vector<std::string>&)txts;
--(void) setValues:(std::vector<std::string>&)vls;
--(std::vector<std::string>) getValues;
+//-(void) setTexts:(std::vector<std::string>&)txts;
+//-(void) setValues:(std::vector<std::string>&)vls;
+//-(std::vector<std::string>) getValues;
 -(void) setCell_type:(int)type;
 -(int) getCell_type;
 
-- (id)init:(UITableViewStyle)style withTexts:(std::vector<std::string>&) txts withValues:(std::vector<std::string>&) vls withCellType:(int)type;
+- (id)init:(UITableViewStyle)style withTexts:(std::vector< std::vector<std::string> >&) txts withValues:(std::vector< std::vector<std::string> >&) vls withCellType:(int)type;
 
 -(NSString*) getCellValue:(int)index;
 -(void) setCellValue:(int)index withValue:(NSString*)value;
 
--(CGRect) getFrame;
+-(CGRect) getTavbleViewCellsFrame;
 
-@property (nonatomic, retain) NSArray *m_labelControls;
-@property (nonatomic, retain) NSArray *m_valueControls;
 @property (nonatomic, retain) NSMutableArray *m_cellControls;
 @end

@@ -8,21 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #include <string>
+#import "TwoButton.h"
 
 enum
 {
     WITH_NONE = 0,
     WITH_LABEL,
     WITH_TEXTFIELD,
+    WITH_TWOBUTTON,
 };
 
 @class OutputViewController;
 
-@interface MyTableViewCell : UIViewController
+@interface MyTableViewCell : NSObject
 {
     int             type;
     int             index;
-    //std::string&    str;
     CGRect          rect;
 }
 
@@ -31,6 +32,7 @@ enum
 @property (nonatomic, retain) UITableViewCell *myTableViewCell;
 @property (nonatomic, retain) UILabel         *myLabel;
 @property (nonatomic, retain) UITextField     *myTextField;
+@property (nonatomic, retain) TwoButton       *myTwoButton;
 
 + (CGRect)getFrame;
 
@@ -41,11 +43,14 @@ enum
 - (void)setFont:(UIFont*)font;
 - (void)setExternalFont:(UIFont*)font;
 
+- (void)setExternalText:(NSString*)nsexternal;
 - (void)setText:(NSString*)ns withExternalText:(NSString*)nsexternal;
 - (void)setDelegate:(id)delegate;
 
 - (id)init:(CGRect)frame externalFrame:(CGRect)exframe type:(int) type;
+- (id)init:(CGRect)frame externalFrame:(CGRect)exframe type:(int) type accessoryType:(UITableViewCellAccessoryType)accessoryType;
 - (id)init:(int)type;
+- (id)init:(int)type accessoryType:(UITableViewCellAccessoryType)accessoryType;
 
 - (int)index;
 - (void)setIndex:(int)newValue;

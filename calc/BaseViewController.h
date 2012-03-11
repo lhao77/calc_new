@@ -17,4 +17,9 @@
 
 - (void) handleTextFieldInput:(NSNotification*) notify;
 
+- (UIButton*)createButton:(SEL)sel withFrame:(CGRect) rect withTitle:(NSString*)title;
+
+@property (strong, nonatomic) UIButton *ok_button;
+@property (strong, nonatomic) UIButton *reset_button;
+
 @end

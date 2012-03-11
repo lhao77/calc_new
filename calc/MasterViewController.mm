@@ -13,12 +13,14 @@
 #import "MyTableViewController.h"
 #import "EqpaymentViewController.h"
 #import "OutputViewController.h"
+
 #include "def.h"
+#import "PrepaymentViewController.h"
 
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController;
-//@synthesize eqInstalmentViewController = _eqInstalmentViewController;
+@synthesize eqInstalmentViewController = _eqInstalmentViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -120,6 +122,7 @@
     // Configure the cell.
     std::string str = g_type_func[indexPath.section].names[indexPath.row];
     cell.textLabel.text = NSLocalizedString([[NSString alloc] initWithCString:str.c_str() encoding:NSUTF8StringEncoding], @"Detail");
+    [cell setFont:[UIFont systemFontOfSize:14]];
     return cell;
 }
 
@@ -162,7 +165,11 @@
 */
 
 
-extern EqpaymentViewController *g_eqpayViewController;
+//extern EqpaymentViewController *g_eqpayViewController;
+
+//#import "TestTableViewController.h"
+//TestTableViewController * g_test;
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -171,9 +178,13 @@ extern EqpaymentViewController *g_eqpayViewController;
 //	    }
 //        [self.navigationController pushViewController:self.detailViewController animated:YES];
 //    }
-    //extern EqInstalmentViewController *g_EqInstalmentViewController;
-    //[self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
-
+    
+//    extern EqInstalmentViewController *g_EqInstalmentViewController;
+//    [self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
+    
+//    EqInputViewController*eq = [[EqInputViewController alloc] init];
+//    [self.navigationController pushViewController:eq animated:YES];
+    
     /*
     MyTableViewController *my = [[MyTableViewController alloc] initWithNibName:nil bundle:nil];
     my.m_nsarray =[[NSArray alloc] initWithObjects:@"One",@"Two",@"Three",@"Four",nil];
@@ -193,7 +204,14 @@ extern EqpaymentViewController *g_eqpayViewController;
     [self.navigationController pushViewController:output animated:YES];
     */
     
-    [self.navigationController pushViewController:g_eqpayViewController animated:YES];
+    //[self.navigationController pushViewController:g_eqpayViewController animated:YES];
+    
+//    g_test = [[TestTableViewController alloc]initWithStyle:UITableViewStylePlain];
+//    [self.navigationController pushViewController:g_test animated:YES];
+
+    extern PrepaymentViewController* g_prepaymentViewController;
+    [self.navigationController pushViewController:g_prepaymentViewController animated:YES];
+
 }
 
 @end

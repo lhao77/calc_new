@@ -11,6 +11,9 @@
 
 @implementation BaseViewController
 
+@synthesize ok_button;
+@synthesize reset_button;
+
 -(void)resignFirstResponderForAllSubTextFieldAndUITextView
 {
     if([self.view.subviews count]>0)
@@ -114,4 +117,14 @@ extern bool isValidNumber(const char*);
     };
 }
 
+- (UIButton*)createButton:(SEL)sel withFrame:(CGRect) rect withTitle:(NSString*)title
+{
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTitle:title forState:UIControlStateNormal];
+    button.frame = rect;
+    // 注册按钮按下时的处理函数
+    [button addTarget:self action:sel
+     forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
 @end

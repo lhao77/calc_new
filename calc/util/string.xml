@@ -64,6 +64,38 @@
         <descript lang="1">第%d月还款</descript>
         <descript lang="2">PAMENT IN MONTH:%d</descript>
     </item>
+    <item name="STR_PAMENT_PASSED_MONTH">
+        <descript lang="1">已还款月数</descript>
+        <descript lang="2">PAID MONTH</descript>
+    </item>
+    <item name="STR_PERPAYMENT_TYPE">
+        <descript lang="1">提前还款方式</descript>
+        <descript lang="2">PREPAMENT TYPE</descript>
+    </item>
+    <item name="STR_PERPAYMENT_THE_MONTH">
+        <descript lang="1">本月还款额</descript>
+        <descript lang="2">PREPAMENT NOW</descript>
+    </item>
+    <item name="STR_PERPAYMENT_ALL">
+        <descript lang="1">一次付清</descript>
+        <descript lang="2">ALL PAID</descript>
+    </item>
+    <item name="STR_PERPAYMENT_PART">
+        <descript lang="1">部分还款</descript>
+        <descript lang="2">PART PAID</descript>
+    </item>
+    <item name="STR_PERPAYMENT_REDUCE_TYPE">
+        <descript lang="1">减少还款方式</descript>
+        <descript lang="2">REDUCE TYPE</descript>
+    </item>
+    <item name="STR_PERPAYMENT_REDUCE_MONTHS">
+        <descript lang="1">缩短还款月数</descript>
+        <descript lang="2">REDUCE MONTHS</descript>
+    </item>
+    <item name="STR_PERPAYMENT_REDUCE_PERPAID">
+        <descript lang="1">减少每月还款</descript>
+        <descript lang="2">REDUCE MONTHS</descript>
+    </item>
     <item name="STR_OK">
         <descript lang="1">计算</descript>
         <descript lang="2">OK</descript>
@@ -80,6 +112,10 @@
     <item name="STR_YEAR">
         <descript lang="1">年</descript>
         <descript lang="2">YEAR</descript>
+    </item>
+    <item name="STR_MONTH">
+        <descript lang="1">月</descript>
+        <descript lang="2">MONTH</descript>
     </item>
     <item name="STR_PERCENT">
         <descript lang="1">(%)</descript>

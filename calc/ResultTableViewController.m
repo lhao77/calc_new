@@ -1,17 +1,15 @@
 //
-//  OutputViewController.m
+//  ResultTableViewController.m
 //  calc
 //
-//  Created by hao luo on 12-2-19.
+//  Created by hao luo on 12-3-5.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "OutputViewController.h"
-//#import "MMyVC.h"
+#import "ResultTableViewController.h"
 
-@implementation OutputViewController
 
-@synthesize m_cellControls;
+@implementation ResultTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -20,35 +18,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (id)init:(UITableViewStyle)style withTexts:(std::vector< std::vector<std::string> >&) txts withValues:(std::vector< std::vector<std::string> >&) vls withCellType:(int)type
-{
-    self = [self initWithStyle:style];
-    texts = txts;
-    values = vls;
-    cell_type = type;
-    
-    if (!m_cellControls) {
-        m_cellControls = [[NSMutableArray alloc] init];
-        for (int i=0; i<txts.size(); i++) {
-            NSMutableArray *nsm = [[NSMutableArray alloc] init];
-            [m_cellControls insertObject:nsm atIndex:i];
-        }
-    }
-    
-    return self;
-}
-
--(CGRect) getTavbleViewCellsFrame
-{
-    CGRect rect = [MyTableViewCell getFrame];
-    int count = 0;
-    for (int i=0; i<texts.size(); i++) {
-        count += texts[i].size();
-    }
-    rect.size.height *= count;
-    return rect;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,9 +39,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    //self.view.frame = [self getFrame];
-    //CGRect rect = self.view.frame;
-    //NSLog(@"%@",self.view.frame);
 }
 
 - (void)viewDidUnload
@@ -114,93 +80,38 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return texts.size();
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return texts[section].size();
-}
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"Cell";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
-
--(NSString*) getCellValue:(int)index
-{
-    MyTableViewCell* cell = (MyTableViewCell*)[m_cellControls objectAtIndex:index];
-    if ([cell type] == WITH_LABEL) {
-        return cell.myLabel.text;
-    }
-    else
-    {
-        return cell.myTextField.text;
-    }
-}
-
--(void) setCellValue:(int)index withValue:(NSString*)value
-{
-    MyTableViewCell* cell = (MyTableViewCell*)[m_cellControls objectAtIndex:index];
-    if ([cell type] == WITH_LABEL) {
-        cell.myLabel.text = value;
-    }
-    else
-    {
-        cell.myTextField.text = value;
-    }
-}
-
-- (UITableViewCell *) CreateCell:(int)type withIndexPath:(NSIndexPath *)indexPath
-{
-    
-    UITableViewCell *cell;
-    
-    MyTableViewCell *mycell = [[MyTableViewCell alloc] init:type];
-    //MMyVC *mycell = [[MMyVC alloc] init:type];
-    NSString* text = [[NSString alloc] initWithCString:texts[indexPath.section][indexPath.row].c_str() encoding:NSUTF8StringEncoding];
-    NSString* value = [[NSString alloc] initWithCString:values[indexPath.section][indexPath.row].c_str() encoding:NSUTF8StringEncoding];
-    [mycell setText:text withExternalText:value];
-    [mycell.myTextField setDelegate:(id)self];
-    cell = mycell.myTableViewCell;
-    
-    [(NSMutableArray*)[m_cellControls objectAtIndex:indexPath.section] insertObject:mycell atIndex:indexPath.row];
-    
-    return cell;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
     if (cell == nil) {
-        cell = [self CreateCell:cell_type withIndexPath:indexPath];
-        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
+    // Configure the cell...
     
     return cell;
 }
 
-
+/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return NO;
+    return YES;
 }
-
+*/
 
 /*
 // Override to support editing the table view.
@@ -242,38 +153,7 @@
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */    
-}
-
--(void) setTexts:(std::vector< std::vector<std::string> >&)txts
-{
-    texts = txts;
-}
--(void) setValues:(std::vector< std::vector<std::string> >&)vls
-{
-    values = vls;
-}
--(std::vector< std::vector<std::string> >) getValues
-{
-    return values;
-}
--(void) setCell_type:(int)type
-{
-    cell_type = type;
-}
--(int) getCell_type
-{
-    return cell_type;
-}
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    UITableViewCell *ui = (UITableViewCell*)[textField superview];
-    NSLog(@"MyRow:%d",[self.tableView indexPathForCell:ui].row); 
-}
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{    
-    [textField resignFirstResponder];
-    return YES;
+     */
 }
 
 @end

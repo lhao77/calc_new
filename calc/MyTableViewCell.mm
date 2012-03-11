@@ -10,11 +10,30 @@
 #import "OutputViewController.h"
 
 
+int getControllerType(NSString* str)
+{
+    const NSArray* controller_array = [NSArray arrayWithObjects:@"WITH_NONE",@"WITH_LABEL",@"WITH_TEXTFIELD",@"WITH_TWOBUTTON",nil];
+//    for (int i=0; i<[controller_array count]; i++) {
+//        if ([str isEqualToString:[controller_array objectAtIndex:i]]) {
+//            return i;
+//        }
+//    }
+    if ([str isEqualToString:[controller_array objectAtIndex:2]]) {
+        return 2;
+    }
+    else
+        return 1;
+    
+    assert("unkown controller type!!");
+    return -1;
+}
+
 @implementation MyTableViewCell
 
 @synthesize myTableViewCell;
 @synthesize myLabel;
 @synthesize myTextField;
+@synthesize myTwoButton;
 @synthesize value;
 @synthesize outputViewController;
 
@@ -23,21 +42,38 @@
     if (self) {
         // Initialization code
         self.myTableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCellReuseIdentifier"];
-        self.myTableViewCell.frame = frame;
+        [self.myTableViewCell setFrame:frame];
         self.myTableViewCell.editingAccessoryType = UITableViewCellAccessoryNone;
         
         self.type = type;
         if (type == WITH_LABEL) {
             self.myLabel = [[UILabel alloc] initWithFrame:exframe];
+            //myLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
+            //myLabel.backgroundColor = [UIColor colorWithRed:1.f green:0.f blue:0 alpha:1.0f];
+            //myLabel.font = [UIFont systemFontOfSize:12];
+            
             [self.myTableViewCell addSubview:self.myLabel];
         }
         else if (type == WITH_TEXTFIELD)
         {
             self.myTextField = [[UITextField alloc] initWithFrame:exframe];
-            [self.myTableViewCell addSubview:self.myTextField];
+            //myTextField.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+            //myTextField.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.5f];
+            [myTextField setBorderStyle:(UITextBorderStyle)UITextBorderStyleLine];
+            myTextField.font = [UIFont systemFontOfSize:12];
+            
+            [self.myTableViewCell.contentView addSubview:self.myTextField];
+            
             //self.myTextField.delegate = (id)self;
         }
     }
+    return self;
+}
+
+- (id)init:(CGRect)frame externalFrame:(CGRect)exframe type:(int) type accessoryType:(UITableViewCellAccessoryType)accessoryType
+{
+    self = [self init:frame externalFrame:exframe type:type];
+    self.myTableViewCell.accessoryType = accessoryType;
     return self;
 }
 
@@ -46,29 +82,41 @@
     self.outputViewController = outputViewController;
 }
 
-- (void)setValueByIndex:(int)idx withTextFieldValue:(NSString*)ns
+- (void)setExternalText:(NSString*)nsexternal
 {
-    const char *tmp = [ns UTF8String];
-    std::string &str = [outputViewController getValues][idx];
-    str = tmp;
-}
-
-- (void)setText:(NSString*)ns withExternalText:(NSString*)nsexternal
-{
-    self.myTableViewCell.text = ns;
-    
-    if (type==WITH_LABEL) {
+    if (type == WITH_LABEL) {
         self.myLabel.text = nsexternal;
     }
     else if (type == WITH_TEXTFIELD)
     {
         self.myTextField.text = nsexternal;
-    }
+    }    
+}
+
+- (void)setText:(NSString*)ns withExternalText:(NSString*)nsexternal
+{
+    self.myTableViewCell.text = ns;
+    [self setExternalText:nsexternal];
 }
 
 - (id)init:(int)type
 {
-    return [self init:CGRectMake(20.0, 0.0, 280.0, 50.0) externalFrame:CGRectMake(160.0, 10.0, 120.0, 40.0) type:type];
+    return [self init:type accessoryType:UITableViewCellAccessoryNone];
+}
+
+- (id)init:(int)type accessoryType:(UITableViewCellAccessoryType)accessoryType
+{
+    if (type == WITH_LABEL) {
+        return [self init:CGRectMake(0.0, 0.0, 280.0, 50.0) externalFrame:CGRectMake(160.0, 0.0, 120.0, 40.0) type:type accessoryType:accessoryType];
+    }
+    else if (type == WITH_TEXTFIELD)
+    {
+        return [self init:CGRectMake(0.0, 0.0, 280.0, 50.0) externalFrame:CGRectMake(160.0, 10.0, 120.0, 40.0) type:type accessoryType:accessoryType];
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 + (CGRect)getFrame

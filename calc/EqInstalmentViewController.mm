@@ -37,13 +37,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.eqInputViewController = [[EqInputViewController alloc] initWithNibName:nil bundle:nil];    
+    self.eqInputViewController = [[EqInputViewController alloc] initWithNibName:nil bundle:nil];  
     [self.view addSubview:eqInputViewController.view];
     
     self.eqOutputViewController = [[EqOutputViewController alloc] initWithNibName:nil bundle:nil];
     self.eqOutputViewController.view.frame = CGRectMake(0,180,320,200);
     [self.view addSubview:eqOutputViewController.view];
-    
 }
 
 - (void)viewDidUnload
@@ -59,7 +58,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#import "AppDelegate.h"
 - (IBAction)click_ok:(id)sender {
+//    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+//    [app.navigationController popViewControllerAnimated:YES];
+    
     if([self.eqInputViewController ISNotEmpty])
     {
         [self.eqInputViewController set_input_eq_payment];

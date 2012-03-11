@@ -14,6 +14,6 @@
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-//@property (strong, nonatomic) EqInstalmentViewController *eqInstalmentViewController;
+@property (strong, nonatomic) EqInstalmentViewController *eqInstalmentViewController;
 
 @end
