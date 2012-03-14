@@ -44,6 +44,7 @@ int getControllerType(NSString* str)
         self.myTableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCellReuseIdentifier"];
         [self.myTableViewCell setFrame:frame];
         self.myTableViewCell.editingAccessoryType = UITableViewCellAccessoryNone;
+        [myTableViewCell setFont:[UIFont systemFontOfSize:18]];
         
         self.type = type;
         if (type == WITH_LABEL) {
@@ -57,12 +58,13 @@ int getControllerType(NSString* str)
         else if (type == WITH_TEXTFIELD)
         {
             self.myTextField = [[UITextField alloc] initWithFrame:exframe];
-            //myTextField.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+            myTextField.frame = exframe;
             //myTextField.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.5f];
-            [myTextField setBorderStyle:(UITextBorderStyle)UITextBorderStyleLine];
-            myTextField.font = [UIFont systemFontOfSize:12];
+            [myTextField setBorderStyle:(UITextBorderStyle)UITextBorderStyleRoundedRect];
+            myTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+            myTextField.font = [UIFont systemFontOfSize:18];
             
-            [self.myTableViewCell.contentView addSubview:self.myTextField];
+            [self.myTableViewCell addSubview:self.myTextField];
             
             //self.myTextField.delegate = (id)self;
         }
@@ -107,11 +109,11 @@ int getControllerType(NSString* str)
 - (id)init:(int)type accessoryType:(UITableViewCellAccessoryType)accessoryType
 {
     if (type == WITH_LABEL) {
-        return [self init:CGRectMake(0.0, 0.0, 280.0, 50.0) externalFrame:CGRectMake(160.0, 0.0, 120.0, 40.0) type:type accessoryType:accessoryType];
+        return [self init:CGRectMake(0.0, 0.0, 280.0, 40.0) externalFrame:CGRectMake(160.0, 0.0, 120.0, 40.0) type:type accessoryType:accessoryType];
     }
     else if (type == WITH_TEXTFIELD)
     {
-        return [self init:CGRectMake(0.0, 0.0, 280.0, 50.0) externalFrame:CGRectMake(160.0, 10.0, 120.0, 40.0) type:type accessoryType:accessoryType];
+        return [self init:CGRectMake(0.0, 0.0, 280.0, 40.0) externalFrame:CGRectMake(160.0, 2.0, 120.0, 38.0) type:type accessoryType:accessoryType];
     }
     else
     {
@@ -121,7 +123,7 @@ int getControllerType(NSString* str)
 
 + (CGRect)getFrame
 {
-    return CGRectMake(20.0, 0.0, 280.0, 50.0);
+    return CGRectMake(0.0, 0.0, 280.0, 40.0);
 }
 
 /*
@@ -175,7 +177,7 @@ int getControllerType(NSString* str)
 
 - (void)setDelegate:(id)delegate
 {
-    //self.myTextField.delegate = delegate;
+    myTextField.delegate = delegate;
 }
 
 - (int)index {

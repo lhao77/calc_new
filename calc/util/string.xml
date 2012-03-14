@@ -36,6 +36,10 @@
         <descript lang="1">等额本金</descript>
         <descript lang="2">EQ PAY</descript>
     </item>
+    <item name="STR_PERPAYMENT">
+        <descript lang="1">提前还款</descript>
+        <descript lang="2">PREPAMENT</descript>
+    </item>
     <item name="STR_PAYENT_PER_MONTH">
         <descript lang="1">月均还款</descript>
         <descript lang="2">PAYMENT(MONTH)</descript>

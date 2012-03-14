@@ -8,6 +8,7 @@
 
 #import "PrepaymentViewController.h"
 #import "AppDelegate.h"
+#include "StringMgr.h"
 
 extern NSString* CELL_LEFT_TITLE;
 extern NSString* CELL_RIGHT_VALUE;
@@ -66,6 +67,7 @@ extern int getControllerType(NSString* str);
 {
     MyTableViewCell *mycell = [[MyTableViewCell alloc] init:getControllerType((NSString*)[(NSMutableDictionary*)[self.items objectAtIndex:idx] objectForKey: CELL_RIGHT_CONTROLTYPE]) accessoryType:getTableViewCellAccessoryType((NSString*)[(NSMutableDictionary*)[self.items objectAtIndex:idx] objectForKey: CELL_ACCESSORYTYPE])];
     [mycell setText:(NSString*)[(NSMutableDictionary*)[self.items objectAtIndex:idx] objectForKey: CELL_LEFT_TITLE] withExternalText:(NSString*)[(NSMutableDictionary*)[self.items objectAtIndex:idx] objectForKey: CELL_RIGHT_VALUE]];
+    mycell.myTextField.delegate = self;
     [cells insertObject:mycell atIndex:idx];
     return mycell;
 }
@@ -132,11 +134,59 @@ extern int getControllerType(NSString* str);
     }
 }
 
+extern bool isValidNumber(const char*);
+- (void) handleTextFieldInput:(NSNotification*) notify
+{
+    UITextField *tf = [notify object];
+    //NSLog(@"--%@--",nstr);
+    const char *input = [tf.text UTF8String];
+    if(!isValidNumber(input))
+    {
+        char tmp[50];
+        strcpy(tmp, input);
+        tmp[strlen(tmp)-1] = '\0';
+        tf.text = [[NSString alloc] initWithCString:tmp 
+                                           encoding:NSUTF8StringEncoding];
+    };
+}
+
+-(void) click_calc
+{
+    bool b_input = true;
+    struct input_prepayment_eq_installment peqi;
+    MyTableViewCell *my = [cells objectAtIndex:0];
+    const char *sz_loan_amount = [my.myTextField.text UTF8String];
+    my = [cells objectAtIndex:1];
+    const char *sz_loan_year = [my.myTextField.text UTF8String];
+    my = [cells objectAtIndex:2];
+    const char *sz_interest = [my.myTextField.text UTF8String];
+    my = [cells objectAtIndex:3];
+    const char *sz_paid_month = [my.myTextField.text UTF8String];
+    my = [cells objectAtIndex:4];
+    const char *sz_prepayment_type = [my.myLabel.text UTF8String];
+    my = [cells objectAtIndex:5];
+    const char *sz_payment_now = [my.myTextField.text UTF8String];
+    my = [cells objectAtIndex:6];
+    const char *sz_reduce_type = [my.myTextField.text UTF8String];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldInput:) name:UITextFieldTextDidChangeNotification object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOptionTableViewReturn:) name:@"OptionTableViewReturn" object:nil];
+    
+    [self.navigationItem setTitle:[NSString stringWithUTF8String:StringMgr::GetStringMgr()->GetDescript("STR_PERPAYMENT").c_str()]];
+
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithUTF8String:StringMgr::GetStringMgr()->GetDescript("STR_OK").c_str()] style:UIBarButtonItemStyleDone target:self action:@selector(click_calc)];
+    [self.navigationItem setRightBarButtonItem:rightButton];
 }
 
 - (void)viewDidUnload

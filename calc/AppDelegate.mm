@@ -95,19 +95,19 @@ void initPrepaymentViewController()
     NSArray *cell_attributes = [NSArray arrayWithObjects:CELL_LEFT_TITLE,CELL_RIGHT_VALUE,CELL_RIGHT_UTIL,CELL_RIGHT_CONTROLTYPE,CELL_ACCESSORYTYPE,CELL_TAG, nil];
     NSMutableDictionary* dict = nil;
     
-    NSArray *cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_AMOUNT").c_str() encoding:NSUTF8StringEncoding],@"aa",[NSString stringWithCString:strMgr->GetDescript("STR_TENTHOU").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"0", nil];
+    NSArray *cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_AMOUNT").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_TENTHOU").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"0", nil];
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
     
-    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_YEAR").c_str() encoding:NSUTF8StringEncoding],@"aa",[NSString stringWithCString:strMgr->GetDescript("STR_YEAR").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"1", nil];
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_YEAR").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_YEAR").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"1", nil];
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
     
-    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_INTEREST").c_str() encoding:NSUTF8StringEncoding],@"aa",[NSString stringWithCString:strMgr->GetDescript("STR_PERCENT").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"2", nil];
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_INTEREST").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_PERCENT").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"2", nil];
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
     
-    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_PAMENT_PASSED_MONTH").c_str() encoding:NSUTF8StringEncoding],@"aa",[NSString stringWithCString:strMgr->GetDescript("STR_MONTH").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"3", nil];
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_PAMENT_PASSED_MONTH").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_MONTH").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"3", nil];
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
     
@@ -115,7 +115,7 @@ void initPrepaymentViewController()
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
     
-    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_PERPAYMENT_THE_MONTH").c_str() encoding:NSUTF8StringEncoding],@"aa",[NSString stringWithCString:strMgr->GetDescript("STR_TENTHOU").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"5", nil];
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_PERPAYMENT_THE_MONTH").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_TENTHOU").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"5", nil];
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
     
