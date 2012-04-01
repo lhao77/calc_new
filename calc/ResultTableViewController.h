@@ -10,4 +10,7 @@
 
 @interface ResultTableViewController : UITableViewController
 
+@property (nonatomic,strong) NSMutableArray *nsma;
+
+-(id) init:(NSMutableArray*)items withStyle:(UITableViewStyle)style;
 @end

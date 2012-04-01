@@ -28,7 +28,7 @@ extern int getControllerType(NSString* str);
 @synthesize pre_types;
 @synthesize pre_reduce_types;
 @synthesize cells;
-
+@synthesize result_pre_payment;
 /*
  items结构是字典的组合:
  "title","..."
@@ -44,7 +44,7 @@ extern int getControllerType(NSString* str);
     self = [self initWithStyle:style];
     self.items = nsma;
     self.pre_types = pts;
-    self.pre_reduce_types = pts;
+    self.pre_reduce_types = prts;
     
     self.pre_payment_type = [[OptionTableViewController alloc] init:UITableViewStylePlain withItems:pre_types withSelectIndex:0 withParentTag:4];
     self.pre_payment_reduce_type = [[OptionTableViewController alloc] init:UITableViewStylePlain withItems:pre_reduce_types withSelectIndex:0 withParentTag:6];
@@ -167,7 +167,40 @@ extern bool isValidNumber(const char*);
     my = [cells objectAtIndex:5];
     const char *sz_payment_now = [my.myTextField.text UTF8String];
     my = [cells objectAtIndex:6];
-    const char *sz_reduce_type = [my.myTextField.text UTF8String];
+    const char *sz_reduce_type = [my.myLabel.text UTF8String];
+    
+    //printf("%s,%s,%s,%s,%s,%s,%s\n",sz_loan_amount,sz_loan_year,sz_interest,sz_paid_month,
+    //       sz_prepayment_type,sz_payment_now,sz_reduce_type);
+    
+    if(*sz_loan_amount==0 || sz_loan_year==0 || sz_interest==0 || sz_paid_month==0 || sz_payment_now==0)
+    {
+        b_input = false;
+    }
+    if (!b_input) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithCString:StringMgr::GetStringMgr()->GetDescript("STR_INPUT_ERROR").c_str() encoding:NSUTF8StringEncoding] delegate:self cancelButtonTitle:[NSString stringWithCString:StringMgr::GetStringMgr()->GetDescript("STR_CONFIRM").c_str() encoding:NSUTF8StringEncoding] otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    peqi.loan_amount = atof(sz_loan_amount) * 10000.0f;
+    peqi.months_amount = atoi(sz_loan_year) * 12;
+    peqi.interest_former = atof(sz_interest) / 100.0f;
+    peqi.interest_new = peqi.interest_former;
+    peqi.months_passed = atoi(sz_interest);
+    peqi.wish_payment_this_month = atof(sz_payment_now) * 10000.0f;
+    peqi.b_wish_pay_all = [pre_payment_type getSelectIndex];
+    peqi.b_wish_reduce_payment_permonth = !([pre_payment_reduce_type getSelectIndex]);
+    
+    struct result_prepayment_eq_installment ret =  calc_prepayment_eq_installment(peqi);
+    
+    NSArray *cell_attributes = [NSArray arrayWithObjects:CELL_LEFT_TITLE,CELL_RIGHT_VALUE,nil];
+    NSMutableArray *tnsma = [[NSMutableArray alloc] init];
+    NSMutableDictionary* dict = nil;
+    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
+    [tnsma addObject:dict];
+    result_pre_payment = [[ResultTableViewController alloc] init:tnsma withStyle:UITableViewStylePlain];
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    [app.navigationController pushViewController:self.result_pre_payment animated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

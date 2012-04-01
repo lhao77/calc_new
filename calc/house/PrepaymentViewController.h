@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OptionTableViewController.h"
+#import "ResultTableViewController.h"
 #import "MyTableViewCell.h"
 #include "def.h"
 
@@ -30,4 +31,5 @@
 @property (nonatomic,strong) OptionTableViewController *pre_payment_type;
 @property (nonatomic,strong) OptionTableViewController *pre_payment_reduce_type;
 
+@property (nonatomic,strong) ResultTableViewController *result_pre_payment;
 @end

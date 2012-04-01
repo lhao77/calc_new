@@ -100,9 +100,17 @@
         <descript lang="1">减少每月还款</descript>
         <descript lang="2">REDUCE MONTHS</descript>
     </item>
+    <item name="STR_INPUT_ERROR">
+        <descript lang="1">请输入正确信息</descript>
+        <descript lang="2">Please Input again</descript>
+    </item>
     <item name="STR_OK">
         <descript lang="1">计算</descript>
         <descript lang="2">OK</descript>
+    </item>
+    <item name="STR_CONFIRM">
+        <descript lang="1">确定</descript>
+        <descript lang="2">CONFIRM</descript>
     </item>
     <item name="STR_RESET">
         <descript lang="1">重置</descript>

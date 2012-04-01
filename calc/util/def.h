@@ -102,4 +102,5 @@ struct result_prepayment_eq_installment
 extern struct output_eq_installment_payment calc_eq_installment_payment(struct input_eq_payment input);
 //等额本金还款法
 extern struct output_eq_interest_payment calc_eq_interest_payment(struct input_eq_payment input);
+extern struct result_prepayment_eq_installment calc_prepayment_eq_installment(struct input_prepayment_eq_installment input);
 #endif
