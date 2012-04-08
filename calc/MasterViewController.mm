@@ -9,10 +9,6 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
-#import "EqInstalmentViewController.h"
-#import "MyTableViewController.h"
-#import "EqpaymentViewController.h"
-#import "OutputViewController.h"
 
 #include "def.h"
 #import "PrepaymentViewController.h"
@@ -123,7 +119,7 @@
     // Configure the cell.
     std::string str = g_type_func[indexPath.section].names[indexPath.row];
     cell.textLabel.text = NSLocalizedString([[NSString alloc] initWithCString:str.c_str() encoding:NSUTF8StringEncoding], @"Detail");
-    [cell setFont:[UIFont systemFontOfSize:14]];
+    [cell setFont:[UIFont systemFontOfSize:17]];
     return cell;
 }
 

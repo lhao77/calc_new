@@ -1,34 +1,26 @@
 //
-//  OptionTableViewController.m
+//  ResultTableViewController.m
 //  calc
 //
 //  Created by hao luo on 12-3-5.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "OptionTableViewController.h"
+#import "ResultTableViewController.h"
+#import "MyTableViewCell.h"
 
-@implementation OptionTableViewController
+extern int getControllerType(NSString* str);
 
-@synthesize nsma;
+@implementation ResultTableViewController
 
--(void) setSelectIndex:(int)idx
+@synthesize nsma_lt;
+@synthesize nsma_rv;
+
+-(id) init:(NSMutableArray*)items withValue:(NSMutableArray*)items1 withStyle:(UITableViewStyle)style
 {
-    selectIndex = idx;
-}
-
--(int)  getSelectIndex
-{
-    return selectIndex;
-}
-
--(void) setParentTag:(int)idx
-{
-    parentTag = idx;
-}
--(int)  getParentTag
-{
-    return parentTag;
+    nsma_lt = items;
+    nsma_rv = items1;
+    return [self initWithStyle:style];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -38,14 +30,6 @@
         // Custom initialization
     }
     return self;
-}
-
--(id)init:(UITableViewStyle)style withItems:(NSMutableArray*)items withSelectIndex:(int)idx withParentTag:(int)itag
-{
-    selectIndex = idx;
-    parentTag = itag;
-    nsma = items;
-    return [self initWithStyle:style];
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,33 +99,16 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [nsma count];
+    return [nsma_lt count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    MyTableViewCell *mycell = [[MyTableViewCell alloc] init:getControllerType(@"WITH_LABEL") accessoryType:UITableViewCellAccessoryNone];
+    [mycell setText:[nsma_lt objectAtIndex:indexPath.row] withExternalText:[nsma_rv objectAtIndex:indexPath.row]];
+    //[mycell setDefaultExternalColor];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell...
-    cell.textColor = [UIColor colorWithRed:0.196 green:0.310 blue:0.522 alpha:1.000];
-    [cell setFont:[UIFont systemFontOfSize:17]];
-    cell.textLabel.textAlignment = UITextAlignmentLeft;
-    cell.textLabel.text = [nsma objectAtIndex:indexPath.row];
-    cell.tag = indexPath.row;
-    if (indexPath.row==selectIndex) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
-    else
-    {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
-    return cell;
+    return mycell.myTableViewCell;
 }
 
 /*
@@ -185,42 +152,15 @@
 
 #pragma mark - Table view delegate
 
-#import "AppDelegate.h"
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    if (indexPath.row != selectIndex)
-    {
-        //处理之前的选中的cell
-        NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectIndex inSection:0];
-        UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
-        
-        if (oldCell.accessoryType == UITableViewCellAccessoryCheckmark) {
-            
-            oldCell.accessoryType = UITableViewCellAccessoryNone;
-            
-        }
-        
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        if (indexPath.row != selectIndex) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        }
-        selectIndex = indexPath.row;
-        
-        NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-        [dict setObject:[nsma objectAtIndex:selectIndex] forKey:@"value"];
-        [dict setObject:indexPath forKey:@"indexPath"];
-        char tmp[20];
-        sprintf(tmp,"%d", [self getParentTag]);
-        NSString *nstag = [NSString stringWithCString:tmp encoding:NSUTF8StringEncoding];
-        [dict setObject:nstag forKey:@"parentTag"];
-        NSNotification *notification = [NSNotification notificationWithName:@"OptionTableViewReturn" object:dict];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];        
-    }    
-    
-    AppDelegate *app = [[UIApplication sharedApplication] delegate];
-    [app.navigationController popViewControllerAnimated:YES];
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
 @end

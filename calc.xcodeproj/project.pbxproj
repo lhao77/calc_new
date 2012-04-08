@@ -7,22 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E2490DB14F10B08003F9EA8 /* EqpaymentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E2490D914F10B08003F9EA8 /* EqpaymentViewController.mm */; };
-		2E2490DC14F10B08003F9EA8 /* EqpaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2490DA14F10B08003F9EA8 /* EqpaymentViewController.xib */; };
-		2E2490E014F1154E003F9EA8 /* OutputViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E2490DE14F1154E003F9EA8 /* OutputViewController.mm */; };
-		2E2490E114F1154E003F9EA8 /* OutputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E2490DF14F1154E003F9EA8 /* OutputViewController.xib */; };
 		2E2490ED14F34BEF003F9EA8 /* MyTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E2490EC14F34BEF003F9EA8 /* MyTableViewCell.mm */; };
 		2E27127414FBCF4A00324F67 /* TwoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E27127314FBCF4A00324F67 /* TwoButton.m */; };
-		2E6F173C14FF1A8700E71439 /* TestTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E6F173A14FF1A8700E71439 /* TestTableViewController.mm */; };
-		2E6F173D14FF1A8700E71439 /* TestTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6F173B14FF1A8700E71439 /* TestTableViewController.xib */; };
+		2E69BDA01531E96900FC4EE3 /* EqualPaymentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E69BD9F1531E96900FC4EE3 /* EqualPaymentViewController.mm */; };
 		2E86A0D0150254F000C3E0FE /* PrepaymentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E86A0CF150254F000C3E0FE /* PrepaymentViewController.mm */; };
-		2E8B2BD614E93F8F00FCEB63 /* EqInputViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */; };
-		2E8B2BD714E93F8F00FCEB63 /* EqInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8B2BD514E93F8F00FCEB63 /* EqInputViewController.xib */; };
-		2E8C66D714EBD95C000DAB71 /* MyTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C66D514EBD95C000DAB71 /* MyTableViewController.mm */; };
-		2E8C66D814EBD95C000DAB71 /* MyTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C66D614EBD95C000DAB71 /* MyTableViewController.xib */; };
 		2E8C66DB14EBDBDC000DAB71 /* tableviewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C66DA14EBDBDC000DAB71 /* tableviewcell.xib */; };
 		2E924C711504F5AA00690F03 /* OptionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E924C701504F5AA00690F03 /* OptionTableViewController.m */; };
-		2E924C751504FF3A00690F03 /* ResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E924C741504FF3A00690F03 /* ResultTableViewController.m */; };
+		2E924C751504FF3A00690F03 /* ResultTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E924C741504FF3A00690F03 /* ResultTableViewController.mm */; };
 		2E92738E14E7AC7800C52C2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92738D14E7AC7800C52C2A /* UIKit.framework */; };
 		2E92739014E7AC7800C52C2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92738F14E7AC7800C52C2A /* Foundation.framework */; };
 		2E92739214E7AC7800C52C2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E92739114E7AC7800C52C2A /* CoreGraphics.framework */; };
@@ -35,48 +26,31 @@
 		2E9273AA14E7AC7800C52C2A /* MasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273A814E7AC7800C52C2A /* MasterViewController_iPad.xib */; };
 		2E9273AD14E7AC7900C52C2A /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273AB14E7AC7800C52C2A /* DetailViewController_iPhone.xib */; };
 		2E9273B014E7AC7900C52C2A /* DetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273AE14E7AC7900C52C2A /* DetailViewController_iPad.xib */; };
-		2E9273C614E7BD3300C52C2A /* EqInstalmentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273C414E7BD3300C52C2A /* EqInstalmentViewController.mm */; };
-		2E9273C714E7BD3300C52C2A /* EqInstalmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273C514E7BD3300C52C2A /* EqInstalmentViewController.xib */; };
 		2E9273E214E7C3F200C52C2A /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273D514E7C3F200C52C2A /* tinystr.cpp */; };
 		2E9273E314E7C3F200C52C2A /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273D714E7C3F200C52C2A /* tinyxml.cpp */; };
 		2E9273E414E7C3F200C52C2A /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273D914E7C3F200C52C2A /* tinyxmlerror.cpp */; };
 		2E9273E514E7C3F200C52C2A /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DA14E7C3F200C52C2A /* tinyxmlparser.cpp */; };
-		2E9273E614E7C3F200C52C2A /* calc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DC14E7C3F200C52C2A /* calc.cpp */; };
+		2E9273E614E7C3F200C52C2A /* calc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DC14E7C3F200C52C2A /* calc.mm */; };
 		2E9273E714E7C3F200C52C2A /* string.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2E9273DE14E7C3F200C52C2A /* string.xml */; };
 		2E9273E814E7C3F200C52C2A /* StringMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */; };
 		2E9273E914E7C3F200C52C2A /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273E114E7C3F200C52C2A /* StringUtil.cpp */; };
 		2E9273ED14E8098600C52C2A /* BaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E9273EC14E8098600C52C2A /* BaseViewController.mm */; };
-		2EECAB9914E94ACE00C92334 /* EqOutputViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2EECAB9714E94ACD00C92334 /* EqOutputViewController.mm */; };
-		2EECAB9A14E94ACE00C92334 /* EqOutputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EECAB9814E94ACD00C92334 /* EqOutputViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E2490D814F10B08003F9EA8 /* EqpaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqpaymentViewController.h; sourceTree = "<group>"; };
-		2E2490D914F10B08003F9EA8 /* EqpaymentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqpaymentViewController.mm; sourceTree = "<group>"; };
-		2E2490DA14F10B08003F9EA8 /* EqpaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqpaymentViewController.xib; sourceTree = "<group>"; };
-		2E2490DD14F1154E003F9EA8 /* OutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputViewController.h; path = ../OutputViewController.h; sourceTree = "<group>"; };
-		2E2490DE14F1154E003F9EA8 /* OutputViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OutputViewController.mm; path = ../OutputViewController.mm; sourceTree = "<group>"; };
-		2E2490DF14F1154E003F9EA8 /* OutputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OutputViewController.xib; path = ../OutputViewController.xib; sourceTree = "<group>"; };
 		2E2490EB14F34BEF003F9EA8 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
 		2E2490EC14F34BEF003F9EA8 /* MyTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyTableViewCell.mm; sourceTree = "<group>"; };
 		2E27127214FBCF4A00324F67 /* TwoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoButton.h; sourceTree = "<group>"; };
 		2E27127314FBCF4A00324F67 /* TwoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoButton.m; sourceTree = "<group>"; };
-		2E6F173914FF1A8700E71439 /* TestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestTableViewController.h; path = calc/test/TestTableViewController.h; sourceTree = "<group>"; };
-		2E6F173A14FF1A8700E71439 /* TestTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestTableViewController.mm; path = calc/test/TestTableViewController.mm; sourceTree = "<group>"; };
-		2E6F173B14FF1A8700E71439 /* TestTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TestTableViewController.xib; path = calc/test/TestTableViewController.xib; sourceTree = "<group>"; };
+		2E69BD9E1531E96900FC4EE3 /* EqualPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqualPaymentViewController.h; sourceTree = "<group>"; };
+		2E69BD9F1531E96900FC4EE3 /* EqualPaymentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqualPaymentViewController.mm; sourceTree = "<group>"; };
 		2E86A0CE150254F000C3E0FE /* PrepaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrepaymentViewController.h; path = house/PrepaymentViewController.h; sourceTree = "<group>"; };
 		2E86A0CF150254F000C3E0FE /* PrepaymentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PrepaymentViewController.mm; path = house/PrepaymentViewController.mm; sourceTree = "<group>"; };
-		2E8B2BD314E93F8F00FCEB63 /* EqInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqInputViewController.h; sourceTree = "<group>"; };
-		2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqInputViewController.mm; sourceTree = "<group>"; };
-		2E8B2BD514E93F8F00FCEB63 /* EqInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqInputViewController.xib; sourceTree = "<group>"; };
-		2E8C66D414EBD95C000DAB71 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
-		2E8C66D514EBD95C000DAB71 /* MyTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyTableViewController.mm; sourceTree = "<group>"; };
-		2E8C66D614EBD95C000DAB71 /* MyTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableViewController.xib; sourceTree = "<group>"; };
 		2E8C66DA14EBDBDC000DAB71 /* tableviewcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableviewcell.xib; sourceTree = "<group>"; };
 		2E924C6F1504F5AA00690F03 /* OptionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionTableViewController.h; sourceTree = "<group>"; };
 		2E924C701504F5AA00690F03 /* OptionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionTableViewController.m; sourceTree = "<group>"; };
 		2E924C731504FF3A00690F03 /* ResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewController.h; sourceTree = "<group>"; };
-		2E924C741504FF3A00690F03 /* ResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableViewController.m; sourceTree = "<group>"; };
+		2E924C741504FF3A00690F03 /* ResultTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultTableViewController.mm; sourceTree = "<group>"; };
 		2E92738914E7AC7800C52C2A /* calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E92738D14E7AC7800C52C2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2E92738F14E7AC7800C52C2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,16 +69,13 @@
 		2E9273A914E7AC7800C52C2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPad.xib; sourceTree = "<group>"; };
 		2E9273AC14E7AC7900C52C2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		2E9273AF14E7AC7900C52C2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPad.xib; sourceTree = "<group>"; };
-		2E9273C314E7BD3300C52C2A /* EqInstalmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqInstalmentViewController.h; sourceTree = "<group>"; };
-		2E9273C414E7BD3300C52C2A /* EqInstalmentViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqInstalmentViewController.mm; sourceTree = "<group>"; };
-		2E9273C514E7BD3300C52C2A /* EqInstalmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqInstalmentViewController.xib; sourceTree = "<group>"; };
 		2E9273D514E7C3F200C52C2A /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
 		2E9273D614E7C3F200C52C2A /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
 		2E9273D714E7C3F200C52C2A /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
 		2E9273D814E7C3F200C52C2A /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		2E9273D914E7C3F200C52C2A /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
 		2E9273DA14E7C3F200C52C2A /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
-		2E9273DC14E7C3F200C52C2A /* calc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = calc.cpp; sourceTree = "<group>"; };
+		2E9273DC14E7C3F200C52C2A /* calc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = calc.mm; sourceTree = "<group>"; };
 		2E9273DD14E7C3F200C52C2A /* def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = def.h; sourceTree = "<group>"; };
 		2E9273DE14E7C3F200C52C2A /* string.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string.xml; sourceTree = "<group>"; };
 		2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringMgr.cpp; sourceTree = "<group>"; };
@@ -112,9 +83,6 @@
 		2E9273E114E7C3F200C52C2A /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
 		2E9273EB14E8098500C52C2A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		2E9273EC14E8098600C52C2A /* BaseViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseViewController.mm; sourceTree = "<group>"; };
-		2EECAB9614E94ACD00C92334 /* EqOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqOutputViewController.h; sourceTree = "<group>"; };
-		2EECAB9714E94ACD00C92334 /* EqOutputViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EqOutputViewController.mm; sourceTree = "<group>"; };
-		2EECAB9814E94ACD00C92334 /* EqOutputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqOutputViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,31 +119,11 @@
 				2E924C6F1504F5AA00690F03 /* OptionTableViewController.h */,
 				2E924C701504F5AA00690F03 /* OptionTableViewController.m */,
 				2E924C731504FF3A00690F03 /* ResultTableViewController.h */,
-				2E924C741504FF3A00690F03 /* ResultTableViewController.m */,
+				2E924C741504FF3A00690F03 /* ResultTableViewController.mm */,
+				2E69BD9E1531E96900FC4EE3 /* EqualPaymentViewController.h */,
+				2E69BD9F1531E96900FC4EE3 /* EqualPaymentViewController.mm */,
 			);
 			name = house;
-			sourceTree = "<group>";
-		};
-		2E924C7A150CF2F300690F03 /* UnUsed */ = {
-			isa = PBXGroup;
-			children = (
-				2E2490DD14F1154E003F9EA8 /* OutputViewController.h */,
-				2E2490DE14F1154E003F9EA8 /* OutputViewController.mm */,
-				2E2490DF14F1154E003F9EA8 /* OutputViewController.xib */,
-				2E8B2BD314E93F8F00FCEB63 /* EqInputViewController.h */,
-				2E8B2BD414E93F8F00FCEB63 /* EqInputViewController.mm */,
-				2E8B2BD514E93F8F00FCEB63 /* EqInputViewController.xib */,
-				2EECAB9614E94ACD00C92334 /* EqOutputViewController.h */,
-				2EECAB9714E94ACD00C92334 /* EqOutputViewController.mm */,
-				2EECAB9814E94ACD00C92334 /* EqOutputViewController.xib */,
-				2E9273C314E7BD3300C52C2A /* EqInstalmentViewController.h */,
-				2E9273C414E7BD3300C52C2A /* EqInstalmentViewController.mm */,
-				2E9273C514E7BD3300C52C2A /* EqInstalmentViewController.xib */,
-				2E2490D814F10B08003F9EA8 /* EqpaymentViewController.h */,
-				2E2490D914F10B08003F9EA8 /* EqpaymentViewController.mm */,
-				2E2490DA14F10B08003F9EA8 /* EqpaymentViewController.xib */,
-			);
-			name = UnUsed;
 			sourceTree = "<group>";
 		};
 		2E92737E14E7AC7800C52C2A = {
@@ -222,13 +170,8 @@
 				2E9273A814E7AC7800C52C2A /* MasterViewController_iPad.xib */,
 				2E9273AB14E7AC7800C52C2A /* DetailViewController_iPhone.xib */,
 				2E9273AE14E7AC7900C52C2A /* DetailViewController_iPad.xib */,
-				2E924C7A150CF2F300690F03 /* UnUsed */,
 				2E86A0CC1502545C00C3E0FE /* house */,
-				2EB85EF714FF199600213A29 /* Test */,
 				2E92739414E7AC7800C52C2A /* Supporting Files */,
-				2E8C66D414EBD95C000DAB71 /* MyTableViewController.h */,
-				2E8C66D514EBD95C000DAB71 /* MyTableViewController.mm */,
-				2E8C66D614EBD95C000DAB71 /* MyTableViewController.xib */,
 				2E27127014FBCE7C00324F67 /* CustomerControl */,
 			);
 			path = calc;
@@ -262,7 +205,7 @@
 		2E9273DB14E7C3F200C52C2A /* util */ = {
 			isa = PBXGroup;
 			children = (
-				2E9273DC14E7C3F200C52C2A /* calc.cpp */,
+				2E9273DC14E7C3F200C52C2A /* calc.mm */,
 				2E9273DD14E7C3F200C52C2A /* def.h */,
 				2E9273DE14E7C3F200C52C2A /* string.xml */,
 				2E9273DF14E7C3F200C52C2A /* StringMgr.cpp */,
@@ -270,17 +213,6 @@
 				2E9273E114E7C3F200C52C2A /* StringUtil.cpp */,
 			);
 			path = util;
-			sourceTree = "<group>";
-		};
-		2EB85EF714FF199600213A29 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				2E6F173914FF1A8700E71439 /* TestTableViewController.h */,
-				2E6F173A14FF1A8700E71439 /* TestTableViewController.mm */,
-				2E6F173B14FF1A8700E71439 /* TestTableViewController.xib */,
-			);
-			name = Test;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,15 +270,8 @@
 				2E9273AA14E7AC7800C52C2A /* MasterViewController_iPad.xib in Resources */,
 				2E9273AD14E7AC7900C52C2A /* DetailViewController_iPhone.xib in Resources */,
 				2E9273B014E7AC7900C52C2A /* DetailViewController_iPad.xib in Resources */,
-				2E9273C714E7BD3300C52C2A /* EqInstalmentViewController.xib in Resources */,
 				2E9273E714E7C3F200C52C2A /* string.xml in Resources */,
-				2E8B2BD714E93F8F00FCEB63 /* EqInputViewController.xib in Resources */,
-				2EECAB9A14E94ACE00C92334 /* EqOutputViewController.xib in Resources */,
-				2E8C66D814EBD95C000DAB71 /* MyTableViewController.xib in Resources */,
 				2E8C66DB14EBDBDC000DAB71 /* tableviewcell.xib in Resources */,
-				2E2490DC14F10B08003F9EA8 /* EqpaymentViewController.xib in Resources */,
-				2E2490E114F1154E003F9EA8 /* OutputViewController.xib in Resources */,
-				2E6F173D14FF1A8700E71439 /* TestTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,26 +286,20 @@
 				2E92739E14E7AC7800C52C2A /* AppDelegate.mm in Sources */,
 				2E9273A114E7AC7800C52C2A /* MasterViewController.mm in Sources */,
 				2E9273A414E7AC7800C52C2A /* DetailViewController.mm in Sources */,
-				2E9273C614E7BD3300C52C2A /* EqInstalmentViewController.mm in Sources */,
 				2E9273E214E7C3F200C52C2A /* tinystr.cpp in Sources */,
 				2E9273E314E7C3F200C52C2A /* tinyxml.cpp in Sources */,
 				2E9273E414E7C3F200C52C2A /* tinyxmlerror.cpp in Sources */,
 				2E9273E514E7C3F200C52C2A /* tinyxmlparser.cpp in Sources */,
-				2E9273E614E7C3F200C52C2A /* calc.cpp in Sources */,
+				2E9273E614E7C3F200C52C2A /* calc.mm in Sources */,
 				2E9273E814E7C3F200C52C2A /* StringMgr.cpp in Sources */,
 				2E9273E914E7C3F200C52C2A /* StringUtil.cpp in Sources */,
 				2E9273ED14E8098600C52C2A /* BaseViewController.mm in Sources */,
-				2E8B2BD614E93F8F00FCEB63 /* EqInputViewController.mm in Sources */,
-				2EECAB9914E94ACE00C92334 /* EqOutputViewController.mm in Sources */,
-				2E8C66D714EBD95C000DAB71 /* MyTableViewController.mm in Sources */,
-				2E2490DB14F10B08003F9EA8 /* EqpaymentViewController.mm in Sources */,
-				2E2490E014F1154E003F9EA8 /* OutputViewController.mm in Sources */,
 				2E2490ED14F34BEF003F9EA8 /* MyTableViewCell.mm in Sources */,
 				2E27127414FBCF4A00324F67 /* TwoButton.m in Sources */,
-				2E6F173C14FF1A8700E71439 /* TestTableViewController.mm in Sources */,
 				2E86A0D0150254F000C3E0FE /* PrepaymentViewController.mm in Sources */,
 				2E924C711504F5AA00690F03 /* OptionTableViewController.m in Sources */,
-				2E924C751504FF3A00690F03 /* ResultTableViewController.m in Sources */,
+				2E924C751504FF3A00690F03 /* ResultTableViewController.mm in Sources */,
+				2E69BDA01531E96900FC4EE3 /* EqualPaymentViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

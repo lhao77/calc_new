@@ -1,22 +1,15 @@
 //
-//  ResultTableViewController.m
+//  EqualPaymentViewController.m
 //  calc
 //
-//  Created by hao luo on 12-3-5.
+//  Created by hao luo on 12-4-8.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "ResultTableViewController.h"
+#import "EqualPaymentViewController.h"
 
-@implementation ResultTableViewController
 
-@synthesize nsma;
-
--(id) init:(NSMutableArray*)items withStyle:(UITableViewStyle)style
-{
-    nsma = items;
-    return [self initWithStyle:style];
-}
+@implementation EqualPaymentViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -87,14 +80,14 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [nsma count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,9 +100,6 @@
     }
     
     // Configure the cell...
-    cell.textLabel.textAlignment = UITextAlignmentLeft;
-    cell.textLabel.text = [nsma objectAtIndex:indexPath.row];
-    cell.accessoryType = UITableViewCellAccessoryNone;
     
     return cell;
 }

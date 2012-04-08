@@ -10,13 +10,12 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
-#import "EqInstalmentViewController.h"
-#import "OutputViewController.h"
-#import "EqpaymentViewController.h"
+
 #include "def.h"
 #include "StringMgr.h"
 
 #import "PrepaymentViewController.h"
+#import "EqualPaymentViewController.h"
 
 std::vector< Functions > g_type_func;
 
@@ -28,6 +27,7 @@ void init_map_func()
     struct Functions fs;
     vs.push_back("等额本金");
     vs.push_back("等额本息");
+    vs.push_back("提前还贷");
     fs = Functions(std::string("房产"),vs);
     g_type_func.push_back(fs);
     
@@ -69,16 +69,8 @@ UITableViewCellAccessoryType getTableViewCellAccessoryType(NSString* str)
     }
 }
 
-EqInstalmentViewController *g_EqInstalmentViewController;
-OutputViewController *g_eqInputViewController;
-OutputViewController *g_preOutputViewController;
-
-OutputViewController *g_eqpayInputViewController;
-OutputViewController *g_eqpayOutputViewController;
-OutputViewController *g_eqpayPerMonthOutputViewController;
-EqpaymentViewController *g_eqpayViewController;
-
 PrepaymentViewController *g_prepaymentViewController;
+EqualPaymentViewController *g_equalpaymentViewController;
 
 NSString* CELL_LEFT_TITLE = [NSString stringWithCString:"title" encoding:NSUTF8StringEncoding];
 NSString* CELL_RIGHT_VALUE = [NSString stringWithCString:"rvalue" encoding:NSUTF8StringEncoding];
@@ -86,13 +78,14 @@ NSString* CELL_RIGHT_UTIL = [NSString stringWithCString:"rutil" encoding:NSUTF8S
 NSString* CELL_RIGHT_CONTROLTYPE = [NSString stringWithCString:"rcontroltype" encoding:NSUTF8StringEncoding];
 NSString* CELL_ACCESSORYTYPE = [NSString stringWithCString:"accessorytype" encoding:NSUTF8StringEncoding];
 NSString* CELL_TAG = [NSString stringWithCString:"tag" encoding:NSUTF8StringEncoding];
+//cell的属性
+NSArray *cell_attributes = [NSArray arrayWithObjects:CELL_LEFT_TITLE,CELL_RIGHT_VALUE,CELL_RIGHT_UTIL,CELL_RIGHT_CONTROLTYPE,CELL_ACCESSORYTYPE,CELL_TAG, nil];
 
 //初始化提前还贷ViewController
 void initPrepaymentViewController()
 {
     NSMutableArray* nsma = [[NSMutableArray alloc]init];
     
-    NSArray *cell_attributes = [NSArray arrayWithObjects:CELL_LEFT_TITLE,CELL_RIGHT_VALUE,CELL_RIGHT_UTIL,CELL_RIGHT_CONTROLTYPE,CELL_ACCESSORYTYPE,CELL_TAG, nil];
     NSMutableDictionary* dict = nil;
     
     NSArray *cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_AMOUNT").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_TENTHOU").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"0", nil];
@@ -129,43 +122,23 @@ void initPrepaymentViewController()
     g_prepaymentViewController = [[PrepaymentViewController alloc] init:nsma withPreTypes:pts withPreReduceTypes:prts withStyle:UITableViewStylePlain];
 }
 
+//初始化等额本息ViewController
 void initEqPayment()
 {
-    g_EqInstalmentViewController = [[EqInstalmentViewController alloc] initWithNibName:nil bundle:nil];
+    NSMutableArray* nsma = [[NSMutableArray alloc]init];
+    NSMutableDictionary* dict = nil;
     
-    //初始化等额本金输入view
-    std::vector<std::string> vec_eq_payment_label;
-    vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_AMOUNT"));
-    vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_YEAR"));
-    vec_eq_payment_label.push_back(strMgr->GetDescript("STR_LOAN_INTEREST"));
-    std::vector<std::string> vec_eq_payment_value(vec_eq_payment_label.size(),"");
-    std::vector< std::vector<std::string> > vec_vec_eq_payment_label;
-    vec_vec_eq_payment_label.push_back(vec_eq_payment_label);
-    std::vector< std::vector<std::string> > vec_vec_eq_payment_value;
-    vec_vec_eq_payment_value.push_back(vec_eq_payment_value);
-
-    //初始化等额本金输出view
-    std::vector<std::string> vec_eqpayout_label1;
-    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_HOUSE_PRICE"));
-    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_INITIAL_PAYMENT"));
-    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_LOAN_AMOUNT"));
-    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_PAYENT_AMOUNT"));
-    vec_eqpayout_label1.push_back(strMgr->GetDescript("STR_INTERST_AMOUNT"));
-    std::vector<std::string> vec_eqpayout_value1(vec_eqpayout_label1.size(),"");
-    std::vector< std::vector<std::string> > vec_vec_eq_payment_label1;
-    vec_vec_eq_payment_label1.push_back(vec_eqpayout_label1);
-    std::vector< std::vector<std::string> > vec_vec_eq_payment_value1;
-    vec_vec_eq_payment_value1.push_back(vec_eqpayout_value1);
+    NSArray *cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_AMOUNT").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_TENTHOU").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"0", nil];
+    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
+    [nsma addObject:dict];
     
-    //vec_eqpayout_label.push_back(strMgr->GetDescript("STR_HOUSE_PRICE"));
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_YEAR").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_YEAR").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"1", nil];
+    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
+    [nsma addObject:dict];
     
-    g_eqpayViewController = [[EqpaymentViewController alloc] initWithNibName:nil bundle:nil];
-    
-    g_eqpayInputViewController = [[OutputViewController alloc] init:UITableViewStyleGrouped withTexts:vec_vec_eq_payment_label withValues:vec_vec_eq_payment_value withCellType:WITH_TEXTFIELD];
-    g_eqpayOutputViewController = [[OutputViewController alloc] init:UITableViewStyleGrouped withTexts:vec_vec_eq_payment_label1 withValues:vec_vec_eq_payment_value1 withCellType:WITH_LABEL];
-    
-    g_eqpayViewController.eqpayInputViewController = g_eqpayInputViewController;
-    g_eqpayViewController.eqpayOutputViewController = g_eqpayOutputViewController;
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_INTEREST").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_PERCENT").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"2", nil];
+    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
+    [nsma addObject:dict];
 }
 
 @implementation AppDelegate

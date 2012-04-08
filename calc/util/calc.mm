@@ -10,8 +10,51 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "StringMgr.h"
+#import <foundation/Foundation.h>
 
 //#define FORMAT "第%d月：%f元\n"
+
+//
+NSMutableArray* convert_result_prepayment_eq_installment_to_array(result_prepayment_eq_installment ret)
+{
+    NSMutableArray* nsma = [[NSMutableArray alloc] init];
+    
+    char tmp[50];
+    sprintf(tmp,"%.2f",ret.payment_paid);
+    [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    sprintf(tmp,"%.2f",ret.interest_paid);
+    [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    sprintf(tmp,"%.2f",ret.actual_payment_this_month);
+    [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    sprintf(tmp,"%.2f",ret.saved_interest_expense);
+    [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    
+    if (!ret.bpay_all) {
+        sprintf(tmp,"%.2f",ret.new_payment_permonth);
+        [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+        sprintf(tmp,"%.2f",ret.months_new);
+        [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    }
+    
+    return nsma;
+}
+
+NSMutableArray* get_result_prepayment_eq_installment_left_title_array(bool bpay_all)
+{
+    StringMgr* strMgr = StringMgr::GetStringMgr();
+    NSMutableArray* nsma = [[NSMutableArray alloc] init];
+    [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_PAID_INTEREST").c_str() encoding:NSUTF8StringEncoding]];
+    [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_PAID_PAYMENT").c_str() encoding:NSUTF8StringEncoding]];
+    [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_SAVED_INTEREST").c_str() encoding:NSUTF8StringEncoding]];
+    [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_PAYMENT_THIS_MONTH").c_str() encoding:NSUTF8StringEncoding]];
+    if(bpay_all)
+    {
+        [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_NEW_DATELINE").c_str() encoding:NSUTF8StringEncoding]];
+        [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_NEW_PAYMENT_PERMONTH").c_str() encoding:NSUTF8StringEncoding]];
+    }
+    return nsma;
+}
 
 //计算等额本息月均还款额度
 double calc_payment_permonth_eq_installment(double loan_amount,int months,double interest)
@@ -161,6 +204,7 @@ struct result_prepayment_eq_installment calc_prepayment_eq_installment(struct in
     ret.interest_paid = ret.payment_paid-(input.loan_amount-loan_amount_after_n_months);
     ret.months_former = input.months_amount;
     
+    ret.breduce_payment_permonth = input.b_wish_reduce_payment_permonth;
     if(loan_amount_after_prepayment_eq_installment>0)
     {
         ret.actual_payment_this_month = input.wish_payment_this_month+ret.old_payment_permonth;

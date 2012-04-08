@@ -17,7 +17,6 @@
 # define ASSERT(x) (void*)0
 #endif 
 
-
 #include <string>
 #include <map>
 #include <vector>
@@ -96,11 +95,13 @@ struct result_prepayment_eq_installment
     int    months_former;
     int    months_new;
     bool   bpay_all;
+    bool   breduce_payment_permonth;
 };
 
 //等额本息还款法
 extern struct output_eq_installment_payment calc_eq_installment_payment(struct input_eq_payment input);
 //等额本金还款法
 extern struct output_eq_interest_payment calc_eq_interest_payment(struct input_eq_payment input);
+//提前还款
 extern struct result_prepayment_eq_installment calc_prepayment_eq_installment(struct input_prepayment_eq_installment input);
 #endif

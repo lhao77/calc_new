@@ -20,6 +20,9 @@ extern NSString* CELL_TAG;
 extern UITableViewCellAccessoryType getTableViewCellAccessoryType(NSString* str);
 extern int getControllerType(NSString* str);
 
+extern NSMutableArray* convert_result_prepayment_eq_installment_to_array(result_prepayment_eq_installment ret);
+extern NSMutableArray* get_result_prepayment_eq_installment_left_title_array(bool bpay_all);
+
 @implementation PrepaymentViewController
 
 @synthesize items;
@@ -67,6 +70,9 @@ extern int getControllerType(NSString* str);
 {
     MyTableViewCell *mycell = [[MyTableViewCell alloc] init:getControllerType((NSString*)[(NSMutableDictionary*)[self.items objectAtIndex:idx] objectForKey: CELL_RIGHT_CONTROLTYPE]) accessoryType:getTableViewCellAccessoryType((NSString*)[(NSMutableDictionary*)[self.items objectAtIndex:idx] objectForKey: CELL_ACCESSORYTYPE])];
     [mycell setText:(NSString*)[(NSMutableDictionary*)[self.items objectAtIndex:idx] objectForKey: CELL_LEFT_TITLE] withExternalText:(NSString*)[(NSMutableDictionary*)[self.items objectAtIndex:idx] objectForKey: CELL_RIGHT_VALUE]];
+    [mycell setFont:[UIFont systemFontOfSize:17]];
+    [mycell setExternalFont:[UIFont systemFontOfSize:17]];
+    
     mycell.myTextField.delegate = self;
     [cells insertObject:mycell atIndex:idx];
     return mycell;
@@ -77,13 +83,6 @@ extern int getControllerType(NSString* str);
     for (int i=0; i<[items count]; i++) {
         [self creatCellAtIndex:i]; 
     }
-}
-
-- (UITableViewCell*) createCell:(NSString*)LeftTitle withRightValue:(NSString*)value withRightControlType:(int)type withAccessoryType:(UITableViewCellAccessoryType)type
-{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"lh"];
-    cell.accessoryType = type;
-    return cell;
 }
 
 - (void)didReceiveMemoryWarning
@@ -193,16 +192,19 @@ extern bool isValidNumber(const char*);
     
     struct result_prepayment_eq_installment ret =  calc_prepayment_eq_installment(peqi);
     
-    NSArray *cell_attributes = [NSArray arrayWithObjects:CELL_LEFT_TITLE,CELL_RIGHT_VALUE,nil];
-    NSMutableArray *tnsma = [[NSMutableArray alloc] init];
-    NSMutableDictionary* dict = nil;
-    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
-    [tnsma addObject:dict];
-    result_pre_payment = [[ResultTableViewController alloc] init:tnsma withStyle:UITableViewStylePlain];
+    NSMutableArray *tnsma = get_result_prepayment_eq_installment_left_title_array(ret.bpay_all);
+    NSMutableArray *tnsma1 = convert_result_prepayment_eq_installment_to_array(ret);
+    
+    result_pre_payment = [[ResultTableViewController alloc] init:tnsma withValue:tnsma1 withStyle:UITableViewStylePlain];
+     
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     [app.navigationController pushViewController:self.result_pre_payment animated:YES];
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -280,7 +282,7 @@ extern bool isValidNumber(const char*);
         MyTableViewCell *mycell = (MyTableViewCell*)[cells objectAtIndex:indexPath.row];
         cell = mycell.myTableViewCell;
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -346,10 +348,6 @@ extern bool isValidNumber(const char*);
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    //g_EqInstalmentViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-    //[self presentModalViewController:g_EqInstalmentViewController animated:YES];
-    //[self.navigationController pushViewController:g_EqInstalmentViewController animated:YES];
-    
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     [app.navigationController pushViewController:self.pre_payment_type animated:YES];
 }

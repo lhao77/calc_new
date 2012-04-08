@@ -7,8 +7,6 @@
 //
 
 #import "MyTableViewCell.h"
-#import "OutputViewController.h"
-
 
 int getControllerType(NSString* str)
 {
@@ -35,7 +33,6 @@ int getControllerType(NSString* str)
 @synthesize myTextField;
 @synthesize myTwoButton;
 @synthesize value;
-@synthesize outputViewController;
 
 - (id)init:(CGRect)frame externalFrame:(CGRect)exframe type:(int) type
 {
@@ -44,29 +41,21 @@ int getControllerType(NSString* str)
         self.myTableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCellReuseIdentifier"];
         [self.myTableViewCell setFrame:frame];
         self.myTableViewCell.editingAccessoryType = UITableViewCellAccessoryNone;
-        [myTableViewCell setFont:[UIFont systemFontOfSize:18]];
         
         self.type = type;
         if (type == WITH_LABEL) {
             self.myLabel = [[UILabel alloc] initWithFrame:exframe];
-            //myLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
-            //myLabel.backgroundColor = [UIColor colorWithRed:1.f green:0.f blue:0 alpha:1.0f];
-            //myLabel.font = [UIFont systemFontOfSize:12];
-            
             [self.myTableViewCell addSubview:self.myLabel];
         }
         else if (type == WITH_TEXTFIELD)
         {
             self.myTextField = [[UITextField alloc] initWithFrame:exframe];
             myTextField.frame = exframe;
-            //myTextField.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.5f];
             [myTextField setBorderStyle:(UITextBorderStyle)UITextBorderStyleRoundedRect];
             myTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-            myTextField.font = [UIFont systemFontOfSize:18];
-            
+
             [self.myTableViewCell addSubview:self.myTextField];
-            
-            //self.myTextField.delegate = (id)self;
+
         }
     }
     return self;
@@ -79,11 +68,6 @@ int getControllerType(NSString* str)
     return self;
 }
 
-- (void)setOutputViewController:(OutputViewController *)outputViewController
-{
-    self.outputViewController = outputViewController;
-}
-
 - (void)setExternalText:(NSString*)nsexternal
 {
     if (type == WITH_LABEL) {
@@ -92,7 +76,9 @@ int getControllerType(NSString* str)
     else if (type == WITH_TEXTFIELD)
     {
         self.myTextField.text = nsexternal;
-    }    
+    }
+    
+    [self setDefaultExternalColor];
 }
 
 - (void)setText:(NSString*)ns withExternalText:(NSString*)nsexternal
@@ -157,6 +143,11 @@ int getControllerType(NSString* str)
     {
         self.myTextField.textColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     }
+}
+
+- (void)setDefaultExternalColor
+{
+    [self setExternalColor:0.196 green:0.310 blue:0.522 alpha:1.000];
 }
 
 - (void)setFont:(UIFont*)font

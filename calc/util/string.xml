@@ -98,8 +98,34 @@
     </item>
     <item name="STR_PERPAYMENT_REDUCE_PERPAID">
         <descript lang="1">减少每月还款</descript>
-        <descript lang="2">REDUCE MONTHS</descript>
+        <descript lang="2">REDUCE PAYMENT PERMONTH</descript>
     </item>
+    <!-- start 提前还款输出-->
+    <item name="STR_PAID_INTEREST">
+        <descript lang="1">已付利息额</descript>
+        <descript lang="2">PAID INTEREST</descript>
+    </item>
+    <item name="STR_PAID_PAYMENT">
+        <descript lang="1">已还款总额</descript>
+        <descript lang="2">PAID PAYMENT</descript>
+    </item>
+    <item name="STR_SAVED_INTEREST">
+        <descript lang="1">节省利息支出</descript>
+        <descript lang="2">SAVED INTEREST</descript>
+    </item>
+    <item name="STR_PAYMENT_THIS_MONTH">
+        <descript lang="1">该月还款额</descript>
+        <descript lang="2">PAYMENT THIS MONTH</descript>
+    </item>
+    <item name="STR_NEW_DATELINE">
+        <descript lang="1">新的还款期</descript>
+        <descript lang="2">NEW DATELINE</descript>
+    </item>
+    <item name="STR_NEW_PAYMENT_PERMONTH">
+        <descript lang="1">新的每月还款额</descript>
+        <descript lang="2">NEW PAYMENT PERMONTH</descript>
+    </item>
+    <!-- end 提前还款输出-->
     <item name="STR_INPUT_ERROR">
         <descript lang="1">请输入正确信息</descript>
         <descript lang="2">Please Input again</descript>

@@ -18,8 +18,6 @@ enum
     WITH_TWOBUTTON,
 };
 
-@class OutputViewController;
-
 @interface MyTableViewCell : NSObject
 {
     int             type;
@@ -27,7 +25,6 @@ enum
     CGRect          rect;
 }
 
-@property (nonatomic, retain) OutputViewController      *outputViewController;
 @property (nonatomic, retain) NSString        *value;
 @property (nonatomic, retain) UITableViewCell *myTableViewCell;
 @property (nonatomic, retain) UILabel         *myLabel;
@@ -40,6 +37,7 @@ enum
 - (void)setType:(int)newValue;
 - (void)setColor:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 - (void)setExternalColor:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
+- (void)setDefaultExternalColor;
 - (void)setFont:(UIFont*)font;
 - (void)setExternalFont:(UIFont*)font;
 
@@ -54,7 +52,5 @@ enum
 
 - (int)index;
 - (void)setIndex:(int)newValue;
-
-- (void)setOutputViewController:(OutputViewController *)outputViewController;
 
 @end
