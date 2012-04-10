@@ -135,11 +135,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "calc/AppDelegate.mm"
-         timestampString = "352651601.407861"
+         timestampString = "355670552.645684"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "111"
-         endingLineNumber = "111"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "initPrepaymentViewController()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -219,11 +219,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "calc/MyTableViewCell.mm"
-         timestampString = "355225102.326827"
+         timestampString = "355670552.645684"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-init:externalFrame:type:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -569,11 +569,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "calc/house/PrepaymentViewController.mm"
-         timestampString = "355592575.268075"
+         timestampString = "355679574.372906"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "351"
-         endingLineNumber = "351"
+         startingLineNumber = "345"
+         endingLineNumber = "345"
          landmarkName = "-tableView:accessoryButtonTappedForRowWithIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -597,11 +597,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "calc/house/PrepaymentViewController.mm"
-         timestampString = "355221803.407808"
+         timestampString = "355670552.645684"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
          landmarkName = "-init:withPreTypes:withPreReduceTypes:withStyle:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -611,25 +611,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "calc/house/PrepaymentViewController.mm"
-         timestampString = "355225102.326827"
+         timestampString = "355679574.372906"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
-         landmarkName = "-handleOptionTableViewReturn:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "calc/house/PrepaymentViewController.mm"
-         timestampString = "355590927.628582"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "282"
-         endingLineNumber = "282"
+         startingLineNumber = "276"
+         endingLineNumber = "276"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -653,11 +639,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "calc/house/PrepaymentViewController.mm"
-         timestampString = "355225102.326827"
+         timestampString = "355679395.065743"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "158"
-         endingLineNumber = "158"
+         startingLineNumber = "145"
+         endingLineNumber = "145"
          landmarkName = "-click_calc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -667,11 +653,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "calc/house/PrepaymentViewController.mm"
-         timestampString = "355225102.326827"
+         timestampString = "355679574.372906"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "188"
+         endingLineNumber = "188"
          landmarkName = "-click_calc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -681,12 +667,124 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "calc/ResultTableViewController.mm"
-         timestampString = "355223466.774281"
+         timestampString = "355677835.785383"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "109"
          endingLineNumber = "109"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "calc/MasterViewController.mm"
+         timestampString = "355673282.1437"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "calc/EqualPaymentViewController.mm"
+         timestampString = "355765795.406648"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
+         landmarkName = "-click_calc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "calc/house/PrepaymentViewController.mm"
+         timestampString = "355679390.665978"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
+         landmarkName = "-click_calc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "calc/house/PrepaymentViewController.mm"
+         timestampString = "355679421.193401"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-click_calc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "calc/house/PrepaymentViewController.mm"
+         timestampString = "355679562.204783"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
+         landmarkName = "-click_calc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "calc/house/PrepaymentViewController.mm"
+         timestampString = "355679566.492289"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
+         landmarkName = "-click_calc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "calc/EqualPaymentViewController.mm"
+         timestampString = "355765795.406648"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "199"
+         endingLineNumber = "199"
+         landmarkName = "-click_calc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "calc/EqualPaymentViewController.mm"
+         timestampString = "355765331.165461"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "178"
+         endingLineNumber = "178"
+         landmarkName = "-click_calc"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

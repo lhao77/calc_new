@@ -1,6 +1,6 @@
 #include "StringMgr.h"
 #include "tinyxml.h"
-#include "def.h"
+#include <assert.h>
 #include "stdlib.h"
 
 #define XML_FILENAME    "string.xml"
@@ -25,7 +25,7 @@ void StringMgr::init()
     //const char* filepath = XML_FILENAME;  
     TiXmlDocument doc(xml_path.c_str());  
     bool loadOkay = doc.LoadFile();  
-    ASSERT(loadOkay);   // faile to load.
+    assert(loadOkay);   // faile to load.
 
     //get dom root and read xml.  
     TiXmlElement* root = doc.RootElement();

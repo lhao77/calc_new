@@ -9,11 +9,11 @@
 #include <iostream>
 #include <stdio.h>
 #include <string>
-#include "def.h"
+#include <assert.h>
 
 bool isValidNumber(const char *src)
 {
-    ASSERT(src);
+    assert(src);
     
     int len = strlen(src);
     if (len==0) {

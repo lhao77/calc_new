@@ -64,7 +64,7 @@ UITableViewCellAccessoryType getTableViewCellAccessoryType(NSString* str)
     }
     else
     {
-        ASSERT("error accessoryType!!");
+        assert("error accessoryType!!");
         return (UITableViewCellAccessoryType)-1;
     }
 }
@@ -128,17 +128,36 @@ void initEqPayment()
     NSMutableArray* nsma = [[NSMutableArray alloc]init];
     NSMutableDictionary* dict = nil;
     
-    NSArray *cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_AMOUNT").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_TENTHOU").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"0", nil];
+    NSArray *cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_CALC_TYPE").c_str() encoding:NSUTF8StringEncoding],[NSString stringWithCString:strMgr->GetDescript("STR_PAY_BY_AMOUNT").c_str() encoding:NSUTF8StringEncoding],@"",@"WITH_LABEL",@"UITableViewCellAccessoryDisclosureIndicator",@"0", nil];
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
     
-    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_YEAR").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_YEAR").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"1", nil];
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_AMOUNT").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_TENTHOU").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"1", nil];
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
     
-    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_INTEREST").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_PERCENT").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"2", nil];
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_YEAR").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_YEAR").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"2", nil];
     dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
     [nsma addObject:dict];
+    
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_HOUSE_AREA").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"3", nil];
+    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
+    [nsma addObject:dict];
+    
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_PRICE_PER_M2").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"4", nil];
+    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
+    [nsma addObject:dict];
+    
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_PERCENT").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"5", nil];
+    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
+    [nsma addObject:dict];
+    
+    cell_values = [NSArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_INTEREST").c_str() encoding:NSUTF8StringEncoding],@"",[NSString stringWithCString:strMgr->GetDescript("STR_PERCENT").c_str() encoding:NSUTF8StringEncoding],@"WITH_TEXTFIELD",@"UITableViewCellAccessoryNone",@"6", nil];
+    dict = [NSMutableDictionary dictionaryWithObjects:cell_values forKeys:cell_attributes];
+    [nsma addObject:dict];
+    
+     NSMutableArray *pts = [NSMutableArray arrayWithObjects:[NSString stringWithCString:strMgr->GetDescript("STR_PAY_BY_AMOUNT").c_str() encoding:NSUTF8StringEncoding],[NSString stringWithCString:strMgr->GetDescript("STR_PAY_BY_AREA").c_str() encoding:NSUTF8StringEncoding], nil];
+    g_equalpaymentViewController = [[EqualPaymentViewController alloc] init:nsma withPaymentTypes:pts withStyle:UITableViewStylePlain];
 }
 
 @implementation AppDelegate
@@ -151,8 +170,8 @@ void initEqPayment()
 {    
     init_map_func();
     init_string();
-    initEqPayment();
     
+    initEqPayment();    
     initPrepaymentViewController();
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

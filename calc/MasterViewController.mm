@@ -12,6 +12,7 @@
 
 #include "def.h"
 #import "PrepaymentViewController.h"
+#import "EqualPaymentViewController.h"
 
 @implementation MasterViewController
 
@@ -207,7 +208,22 @@
 //    [self.navigationController pushViewController:g_test animated:YES];
 
     extern PrepaymentViewController* g_prepaymentViewController;
-    [self.navigationController pushViewController:g_prepaymentViewController animated:YES];
+    extern EqualPaymentViewController *g_equalpaymentViewController;
+    
+    switch(indexPath.row)
+    {
+        case 0:
+            break;
+        case 1:
+            [self.navigationController pushViewController:g_equalpaymentViewController animated:YES];
+            break;
+        case 2:
+            [self.navigationController pushViewController:g_prepaymentViewController animated:YES];
+            break;
+        default:
+            assert("unkown calc error!");
+            break;
+    }
 
 }
 

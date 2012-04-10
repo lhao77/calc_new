@@ -9,13 +9,13 @@
 #ifndef calc_def_h
 #define calc_def_h
 
-#include <assert.h>
-
-#ifdef _DEBUG
-# define ASSERT(x) assert(x)
-#else
-# define ASSERT(x) (void*)0
-#endif 
+//#include <assert.h>
+//
+//#ifdef _DEBUG
+//# define ASSERT(x) assert(x)
+//#else
+//# define ASSERT(x) (void*)0
+//#endif 
 
 #include <string>
 #include <map>
@@ -32,6 +32,17 @@ struct Functions {
 };
 extern std::vector< Functions > g_type_func;
 
+extern NSString* CELL_LEFT_TITLE;
+extern NSString* CELL_RIGHT_VALUE;
+extern NSString* CELL_RIGHT_UTIL;
+extern NSString* CELL_RIGHT_CONTROLTYPE;
+extern NSString* CELL_ACCESSORYTYPE;
+extern NSString* CELL_TAG;
+
+extern UITableViewCellAccessoryType getTableViewCellAccessoryType(NSString* str);
+extern int getControllerType(NSString* str);
+
+extern bool isValidNumber(const char*);
 
 //等额本息、等额本金的输入
 struct input_eq_payment
@@ -50,6 +61,7 @@ struct input_eq_payment
 //等额本息的输出
 struct output_eq_installment_payment
 {
+    bool   b_calc_by_loan_amount;
     double house_price;
     double initial_payment;
     double loan_amount;    

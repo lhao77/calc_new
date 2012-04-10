@@ -10,16 +10,6 @@
 #import "AppDelegate.h"
 #include "StringMgr.h"
 
-extern NSString* CELL_LEFT_TITLE;
-extern NSString* CELL_RIGHT_VALUE;
-extern NSString* CELL_RIGHT_UTIL;
-extern NSString* CELL_RIGHT_CONTROLTYPE;
-extern NSString* CELL_ACCESSORYTYPE;
-extern NSString* CELL_TAG;
-
-extern UITableViewCellAccessoryType getTableViewCellAccessoryType(NSString* str);
-extern int getControllerType(NSString* str);
-
 extern NSMutableArray* convert_result_prepayment_eq_installment_to_array(result_prepayment_eq_installment ret);
 extern NSMutableArray* get_result_prepayment_eq_installment_left_title_array(bool bpay_all);
 
@@ -100,9 +90,12 @@ extern NSMutableArray* get_result_prepayment_eq_installment_left_title_array(boo
     NSMutableDictionary *dict = [notification object];
     NSLog(@"dict=%@\n",dict);
     NSString *parentTag = (NSString*)[dict objectForKey:@"parentTag"];
-    if ([parentTag isEqual:@"4"]) {
-        MyTableViewCell *sele = [cells objectAtIndex:4];
-        [sele setExternalText:[dict objectForKey:@"value"]];
+    const char *sz_parentTag = [parentTag UTF8String];
+    int nParentTag = atoi(sz_parentTag);
+    MyTableViewCell *sele = [cells objectAtIndex:nParentTag];
+    [sele setExternalText:[dict objectForKey:@"value"]];
+    
+    if (nParentTag==4) {
         NSIndexPath *idx = [dict objectForKey:@"indexPath"];
         if (idx.row==1) {//一次付清
             [cells removeObjectAtIndex:6];
@@ -126,14 +119,8 @@ extern NSMutableArray* get_result_prepayment_eq_installment_left_title_array(boo
             }
         }
     }
-    else if([parentTag isEqual:@"6"]) 
-    {
-        MyTableViewCell *sele = [cells objectAtIndex:6];
-        [sele setExternalText:[dict objectForKey:@"value"]];
-    }
 }
 
-extern bool isValidNumber(const char*);
 - (void) handleTextFieldInput:(NSNotification*) notify
 {
     UITextField *tf = [notify object];
@@ -155,23 +142,39 @@ extern bool isValidNumber(const char*);
     struct input_prepayment_eq_installment peqi;
     MyTableViewCell *my = [cells objectAtIndex:0];
     const char *sz_loan_amount = [my.myTextField.text UTF8String];
+    peqi.loan_amount = atof(sz_loan_amount) * 10000.0f;
+    
     my = [cells objectAtIndex:1];
     const char *sz_loan_year = [my.myTextField.text UTF8String];
+    peqi.months_amount = atoi(sz_loan_year) * 12;
+    
     my = [cells objectAtIndex:2];
     const char *sz_interest = [my.myTextField.text UTF8String];
+    peqi.interest_former = atof(sz_interest) / 100.0f;
+    peqi.interest_new = peqi.interest_former;
+    
     my = [cells objectAtIndex:3];
     const char *sz_paid_month = [my.myTextField.text UTF8String];
-    my = [cells objectAtIndex:4];
-    const char *sz_prepayment_type = [my.myLabel.text UTF8String];
-    my = [cells objectAtIndex:5];
-    const char *sz_payment_now = [my.myTextField.text UTF8String];
-    my = [cells objectAtIndex:6];
-    const char *sz_reduce_type = [my.myLabel.text UTF8String];
+    peqi.months_passed = atoi(sz_paid_month);
     
+    //my = [cells objectAtIndex:4];
+    //const char *sz_prepayment_type = [my.myLabel.text UTF8String];
+    peqi.b_wish_pay_all = [pre_payment_type getSelectIndex];
+
+    if ([cells count]>5) {
+        my = [cells objectAtIndex:5];
+        const char *sz_payment_now = [my.myTextField.text UTF8String];
+        b_input = !(*sz_payment_now == '\0');
+        
+        peqi.wish_payment_this_month = atof(sz_payment_now) * 10000.0f;
+    }
+    
+    peqi.b_wish_reduce_payment_permonth = !([pre_payment_reduce_type getSelectIndex]);
+
     //printf("%s,%s,%s,%s,%s,%s,%s\n",sz_loan_amount,sz_loan_year,sz_interest,sz_paid_month,
     //       sz_prepayment_type,sz_payment_now,sz_reduce_type);
     
-    if(*sz_loan_amount==0 || sz_loan_year==0 || sz_interest==0 || sz_paid_month==0 || sz_payment_now==0)
+    if(b_input && (*sz_loan_amount==0 || *sz_loan_year==0 || *sz_interest==0 || *sz_paid_month==0))
     {
         b_input = false;
     }
@@ -181,17 +184,8 @@ extern bool isValidNumber(const char*);
         return;
     }
     
-    peqi.loan_amount = atof(sz_loan_amount) * 10000.0f;
-    peqi.months_amount = atoi(sz_loan_year) * 12;
-    peqi.interest_former = atof(sz_interest) / 100.0f;
-    peqi.interest_new = peqi.interest_former;
-    peqi.months_passed = atoi(sz_interest);
-    peqi.wish_payment_this_month = atof(sz_payment_now) * 10000.0f;
-    peqi.b_wish_pay_all = [pre_payment_type getSelectIndex];
-    peqi.b_wish_reduce_payment_permonth = !([pre_payment_reduce_type getSelectIndex]);
-    
-    struct result_prepayment_eq_installment ret =  calc_prepayment_eq_installment(peqi);
-    
+        
+    struct result_prepayment_eq_installment ret =  calc_prepayment_eq_installment(peqi);    
     NSMutableArray *tnsma = get_result_prepayment_eq_installment_left_title_array(ret.bpay_all);
     NSMutableArray *tnsma1 = convert_result_prepayment_eq_installment_to_array(ret);
     

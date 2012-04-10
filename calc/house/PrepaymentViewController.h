@@ -12,7 +12,6 @@
 #import "MyTableViewCell.h"
 #include "def.h"
 
-
 @interface PrepaymentViewController : UITableViewController<UITextFieldDelegate>
 {
     struct input_prepayment_eq_installment m_in_pre;

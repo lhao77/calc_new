@@ -44,14 +44,6 @@
         <descript lang="1">月均还款</descript>
         <descript lang="2">PAYMENT(MONTH)</descript>
     </item>
-    <item name="STR_HOUSE_PRICE">
-        <descript lang="1">房屋总价</descript>
-        <descript lang="2">HOUSE PRICE</descript>
-    </item>
-    <item name="STR_INITIAL_PAYMENT">
-        <descript lang="1">首期付款</descript>
-        <descript lang="2">INITIAL PAYMENT</descript>
-    </item>
     <item name="STR_PAYENT_AMOUNT">
         <descript lang="1">还款总额</descript>
         <descript lang="2">PAYENTAMOUNT</descript>
@@ -97,9 +89,45 @@
         <descript lang="2">REDUCE MONTHS</descript>
     </item>
     <item name="STR_PERPAYMENT_REDUCE_PERPAID">
-        <descript lang="1">减少每月还款</descript>
-        <descript lang="2">REDUCE PAYMENT PERMONTH</descript>
+        <descript lang="1">减少月还款额</descript>
+        <descript lang="2">REDUCE PERPAID</descript>
     </item>
+    
+    <!-- start 等额还款-->
+    <item name="STR_HOUSE_PRICE">
+        <descript lang="1">房屋总价</descript>
+        <descript lang="2">HOUSE PRICE</descript>
+    </item>
+    <item name="STR_INITIAL_PAYMENT">
+        <descript lang="1">首期付款</descript>
+        <descript lang="2">INITIAL PAYMENT</descript>
+    </item>
+    <item name="STR_CALC_TYPE">
+        <descript lang="1">计算方式</descript>
+        <descript lang="2">CALC TYPE</descript>
+    </item>
+    <item name="STR_PAY_BY_AREA">
+        <descript lang="1">按面积单价计算</descript>
+        <descript lang="2">PAY BY AREA</descript>
+    </item>
+    <item name="STR_PAY_BY_AMOUNT">
+        <descript lang="1">按贷款总额计算</descript>
+        <descript lang="2">PAY BY AMOUNT</descript>
+    </item>
+    <item name="STR_HOUSE_AREA">
+        <descript lang="1">房屋面积(平米)</descript>
+        <descript lang="2">HOUSE AREA</descript>
+    </item>
+    <item name="STR_PRICE_PER_M2">
+        <descript lang="1">单价(元/平米)</descript>
+        <descript lang="2">PRICE/M2</descript>
+    </item>
+    <item name="STR_PERCENT">
+        <descript lang="1">按揭成数</descript>
+        <descript lang="2">PERCENT</descript>
+    </item>
+    <!-- end 等额还款-->
+    
     <!-- start 提前还款输出-->
     <item name="STR_PAID_INTEREST">
         <descript lang="1">已付利息额</descript>
@@ -126,9 +154,13 @@
         <descript lang="2">NEW PAYMENT PERMONTH</descript>
     </item>
     <!-- end 提前还款输出-->
-    <item name="STR_INPUT_ERROR">
-        <descript lang="1">请输入正确信息</descript>
-        <descript lang="2">Please Input again</descript>
+    <item name="STR_PLEASE_INPUT">
+        <descript lang="1">请输入</descript>
+        <descript lang="2">Please Input </descript>
+    </item>
+    <item name="STR_REAL">
+        <descript lang="1">正确</descript>
+        <descript lang="2">Real </descript>
     </item>
     <item name="STR_OK">
         <descript lang="1">计算</descript>

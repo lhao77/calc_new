@@ -56,6 +56,52 @@ NSMutableArray* get_result_prepayment_eq_installment_left_title_array(bool bpay_
     return nsma;
 }
 
+//等额还款的输出转换
+NSMutableArray* convert_output_eq_installment_payment_to_array(output_eq_installment_payment ret)
+{
+    NSMutableArray* nsma = [[NSMutableArray alloc] init];
+    
+    char tmp[50];
+    if (!ret.b_calc_by_loan_amount) {
+        sprintf(tmp,"%.2f",ret.house_price);
+        [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+        sprintf(tmp,"%.2f",ret.loan_amount);
+        [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    }
+    sprintf(tmp,"%.2f",ret.payment_amount);
+    [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    sprintf(tmp,"%.2f",ret.interest_amount);
+    [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    if (!ret.b_calc_by_loan_amount) {
+        sprintf(tmp,"%.2f",ret.initial_payment);
+        [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    }
+    sprintf(tmp,"%.2f",ret.payment_permonth);
+    [nsma addObject:[NSString stringWithCString:tmp encoding:NSUTF8StringEncoding]];
+    
+    return nsma;
+}
+
+NSMutableArray* get_output_eq_installment_payment(bool b_calc_by_loan_amount)
+{
+    StringMgr* strMgr = StringMgr::GetStringMgr();
+    NSMutableArray* nsma = [[NSMutableArray alloc] init];
+    
+    if (!b_calc_by_loan_amount) {
+        [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_HOUSE_PRICE").c_str() encoding:NSUTF8StringEncoding]];
+        [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_LOAN_AMOUNT").c_str() encoding:NSUTF8StringEncoding]];
+    }
+    [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_PAID_PAYMENT").c_str() encoding:NSUTF8StringEncoding]];
+    [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_PAID_INTEREST").c_str() encoding:NSUTF8StringEncoding]];
+    if (!b_calc_by_loan_amount) {
+        [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_INITIAL_PAYMENT").c_str() encoding:NSUTF8StringEncoding]];
+    }
+    [nsma addObject:[NSString stringWithCString:strMgr->GetDescript("STR_PAYENT_PER_MONTH").c_str() encoding:NSUTF8StringEncoding]];
+    
+    
+    return nsma;
+}
+
 //计算等额本息月均还款额度
 double calc_payment_permonth_eq_installment(double loan_amount,int months,double interest)
 {
@@ -68,6 +114,7 @@ struct output_eq_installment_payment calc_eq_installment_payment(struct input_eq
 {
     struct output_eq_installment_payment output;
     
+    output.b_calc_by_loan_amount = input.b_calc_by_loan_amount;
     if(input.b_calc_by_loan_amount)
     {
         output.house_price = -1;

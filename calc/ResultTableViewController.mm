@@ -106,7 +106,8 @@ extern int getControllerType(NSString* str);
 {
     MyTableViewCell *mycell = [[MyTableViewCell alloc] init:getControllerType(@"WITH_LABEL") accessoryType:UITableViewCellAccessoryNone];
     [mycell setText:[nsma_lt objectAtIndex:indexPath.row] withExternalText:[nsma_rv objectAtIndex:indexPath.row]];
-    //[mycell setDefaultExternalColor];
+    [mycell setFont:[UIFont systemFontOfSize:17]];
+    [mycell setExternalFont:[UIFont systemFontOfSize:17]];
     
     return mycell.myTableViewCell;
 }
